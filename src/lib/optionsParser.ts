@@ -1,17 +1,24 @@
-import { rollupTypeBundlerRcJsonPath, rollupTypeBundlerRcPath, rollupTypeBundlerRcYamlPath, rollupTypeBundlerRcYmlPath } from '#lib/constants';
+import {
+  packageCwd,
+  rollupTypeBundlerRcJsonPath,
+  rollupTypeBundlerRcPath,
+  rollupTypeBundlerRcYamlPath,
+  rollupTypeBundlerRcYmlPath
+} from '#lib/constants';
 import type { Options } from '#lib/interfaces';
 import { logVerboseError } from '#lib/logVerbose';
-import { existsAsync } from '#lib/promisified';
-import { load } from 'js-yaml';
+import { fileExistsAsync } from '#lib/promisified';
 import type { PathLike } from 'fs';
-
 import { readFile } from 'fs/promises';
+import { load } from 'js-yaml';
+import { join } from 'path';
+import { pathToFileURL } from 'url';
 
 export async function parseOptionsFile(cliOptions: Options) {
-  const rollupTypeBundlerRcExists = await existsAsync(rollupTypeBundlerRcPath);
-  const rollupTypeBundlerRcJsonExists = await existsAsync(rollupTypeBundlerRcJsonPath);
-  const rollupTypeBundlerRcYmlExists = await existsAsync(rollupTypeBundlerRcYmlPath);
-  const rollupTypeBundlerRcYamlExists = await existsAsync(rollupTypeBundlerRcYamlPath);
+  const rollupTypeBundlerRcExists = await fileExistsAsync(rollupTypeBundlerRcPath);
+  const rollupTypeBundlerRcJsonExists = await fileExistsAsync(rollupTypeBundlerRcJsonPath);
+  const rollupTypeBundlerRcYmlExists = await fileExistsAsync(rollupTypeBundlerRcYmlPath);
+  const rollupTypeBundlerRcYamlExists = await fileExistsAsync(rollupTypeBundlerRcYamlPath);
 
   let options = cliOptions;
 
@@ -49,7 +56,7 @@ export async function parseOptionsFile(cliOptions: Options) {
     }
   }
 
-  return options;
+  return transformOptionsDistPathToFileUrl(options);
 }
 
 async function readYaml<T>(pathLike: PathLike) {
@@ -58,4 +65,13 @@ async function readYaml<T>(pathLike: PathLike) {
 
 async function readJson<T>(pathLike: PathLike) {
   return JSON.parse(await readFile(pathLike, { encoding: 'utf-8' })) as T;
+}
+
+function transformOptionsDistPathToFileUrl(options: Options): Options {
+  const distPath = Reflect.get(options, 'dist');
+
+  return {
+    ...options,
+    dist: pathToFileURL(join(packageCwd, distPath))
+  };
 }

@@ -3,7 +3,7 @@
 import { cliRootDir, indent, packageCwd } from '#lib/constants';
 import { logVerboseError, logVerboseInfo } from '#lib/logVerbose';
 import { parseOptionsFile } from '#lib/optionsParser';
-import { existsAsync } from '#lib/promisified';
+import { dirExitsAsync, fileExistsAsync } from '#lib/promisified';
 import { cyan } from 'colorette';
 import { Command } from 'commander';
 import { readFile } from 'fs/promises';
@@ -13,10 +13,13 @@ import { URL } from 'url';
 const packageFile = new URL('package.json', cliRootDir);
 const packageJson = JSON.parse(await readFile(packageFile, 'utf-8'));
 
+/**
+ * TODO: --config
+ */
 const command = new Command()
   .version(packageJson.version)
-  .argument('<dist-directory>')
-  .usage(`${cyan('<dist-directory>')}`)
+  .requiredOption('-d, --dist <dist>', 'The dist directory to target')
+  .option('-b, --build-script [buildScript]', 'The build script to call after cleaning your dist directory', 'build')
   .option('-v, --verbose', 'Print verbose information', false)
   .option(
     '-e, --external [external...]',
@@ -30,8 +33,20 @@ const command = new Command()
 const program = command.parse(process.argv);
 const options = await parseOptionsFile(program.opts());
 
+logVerboseInfo(
+  [
+    'Resolved options: ',
+    `${indent}dist: ${JSON.stringify(options.dist)}`,
+    `${indent}verbose: ${JSON.stringify(options.verbose)}`,
+    `${indent}external: ${JSON.stringify(options.external)}`,
+    ''
+  ],
+  options.verbose
+);
+
 const packageJsonPath = join(packageCwd, 'package.json');
-const packageJsonExistsInCwd = await existsAsync(packageJsonPath);
+const packageJsonExistsInCwd = await fileExistsAsync(packageJsonPath);
+const distPathExistsInCwd = await dirExitsAsync(options.dist);
 
 if (!packageJsonExistsInCwd) {
   logVerboseError({
@@ -42,8 +57,11 @@ if (!packageJsonExistsInCwd) {
   });
 }
 
-logVerboseInfo([
-  'Resolved options: ',
-  `${indent}verbose: ${JSON.stringify(options.verbose)}`,
-  `${indent}external: ${JSON.stringify(options.external)}`
-]);
+if (!distPathExistsInCwd) {
+  logVerboseError({
+    text: ['Could not find the provided "dist" directory. Check the path you provided with "--dist" or at the "dist" key in the config file!'],
+    verbose: options.verbose,
+    verboseText: ['I detected this dist directory: ', JSON.stringify(options.dist)],
+    exitAfterLog: true
+  });
+}
