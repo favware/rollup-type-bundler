@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "dist": {
+      "description": "The dist directory that should be read from and output to",
+      "type": "string",
+      "default": ""
+    },
+    "buildScript": {
+      "description": "The name of the npm script that builds your TypeScript code",
+      "type": "string",
+      "default": "build"
+    },
+    "external": {
+      "description": "Modules that should be considered as external. See https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "verbose": {
+      "description": "Whether to print verbose information",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": ["dist"]
+}
