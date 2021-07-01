@@ -108,8 +108,7 @@ Options:
 
 Or, you can set most of these options through a configuration file. This
 file should be located at your current working directory (where you're
-calling this package) or at a path you'll have to provide using
-`--config`. It should be named `.rollup-type-bundlerrc`, optionally
+calling this package). It should be named `.rollup-type-bundlerrc`, optionally
 suffixed with `.json`, `.yaml`, or `.yml`.
 
 ### Config file fields
