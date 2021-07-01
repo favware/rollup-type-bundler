@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+import { cleanDist } from '#commands/clean-dist';
+import { cleanExtraneousTypes } from '#commands/clean-extraneous-types';
 import { cliRootDir, indent, packageCwd } from '#lib/constants';
 import { logVerboseError, logVerboseInfo } from '#lib/logVerbose';
 import { parseOptionsFile } from '#lib/optionsParser';
@@ -13,9 +15,6 @@ import { URL } from 'url';
 const packageFile = new URL('package.json', cliRootDir);
 const packageJson = JSON.parse(await readFile(packageFile, 'utf-8'));
 
-/**
- * TODO: --config
- */
 const command = new Command()
   .version(packageJson.version)
   .requiredOption('-d, --dist <dist>', 'The dist directory to target')
@@ -65,3 +64,13 @@ if (!distPathExistsInCwd) {
     exitAfterLog: true
   });
 }
+
+/**
+ * Clean the dist directory
+ */
+cleanDist(options);
+
+/**
+ * Cleans extraneous types from the dist directory
+ */
+cleanExtraneousTypes(options);

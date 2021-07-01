@@ -11,6 +11,7 @@
     "rtb": "./dist/cli.js"
   },
   "imports": {
+    "#commands/*": "./dist/commands/*.js",
     "#lib/*": "./dist/lib/*.js",
     "#root/*": "./dist/*.js"
   },

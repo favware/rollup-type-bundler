@@ -7,6 +7,7 @@
     "preserveConstEnums": true,
     "baseUrl": ".",
     "paths": {
+      "#commands/*": ["commands/*"],
       "#lib/*": ["./lib/*"],
       "#root/*": ["*"]
     }
