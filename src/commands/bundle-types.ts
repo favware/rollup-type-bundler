@@ -1,7 +1,7 @@
 import type { Options } from '#lib/interfaces';
 import { rollup } from 'rollup';
-import { fileURLToPath, URL } from 'url';
 import dts from 'rollup-plugin-dts';
+import { fileURLToPath, URL } from 'url';
 
 /**
  * Bundles all the TypeScript types with {@link rollup}
@@ -18,6 +18,7 @@ export async function bundleTypes(options: Options): Promise<void> {
       format: 'es'
     },
     external: options.external,
-    plugins: [dts()]
+    plugins: [dts()],
+    cache: false
   });
 }
