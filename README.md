@@ -15,34 +15,56 @@
 
 ## Description
 
-When creating a library with TypeScript you will often be able to just publish it with your current toolset, however once your library grows and grows then you might want to make it possible for people of your library to use [TypeScript Module Augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html) to merge additional types into the types that you provide.
+When you create a library in TypeScript, you will often be able to just publish
+it with your current toolset; however, once your library grows and grows, you
+might want to make it possible for people of your library to use [TypeScript
+Module Augmentation][tma] to merge additional types into the types that you
+provide.
 
-This however introduces a big issue in TypeScript. Even when re-exporting all your interfaces/types/classes in a root `index.d.ts` that you are referencing in `"types"` in your `package.json`, TypeScript still won't properly apply folder-nested (i.e. a type that's in `your-package/dist/lib/structures/SomeClass.d.ts`) module augmentation when augmenting with:
+Unfortunately, this introduces a big issue in TypeScript. Even when
+re-exporting all your interfaces/types/classes in a root `index.d.ts` that you
+are referencing in `"types"` in your `package.json`, TypeScript still won't
+properly apply folder-nested module augmentation (i.e. a type that's in
+`your-package/dist/lib/structures/SomeClass.d.ts`) when augmenting like this:
 
 ```ts
 declare module 'your-package' {}
 ```
 
-Without this package your users would have to augment the type with:
+Without this package, your users would have to augment the type like this:
 
 ```ts
 declare module 'your-package/dist/lib/structures/SomeClass' {}
 ```
 
-this is extremely bad developer experience because you cannot apply all module augmentations in 1 block. To solve this issue, there is this library.
+As you might guess, this is extremely bad developer experience because you
+cannot apply all module augmentations in 1 block. That's where this rollup
+module comes in - now, you can bundle types in a developer-friendly way and
+make life easier for everyone involved.
+
+[tma]: https://www.typescriptlang.org/docs/handbook/declaration-merging.html
 
 ### How this works
 
-The library uses [rollup](https://www.npmjs.com/package/rollup) with [rollup-plugin-dts](https://www.npmjs.com/package/rollup-plugin-dts) under the hood. It will execute a few steps:
+The library uses [rollup] with [rollup-plugin-dts] under the hood. It will
+execute a few steps:
 
-1. It cleans the configured dist directory (`--dist` flag or `dist` in config).
-2. It calls the `--build-script` (or `buildScript` in config) to build your code with your compiler. This defaults to `build`.
-3. It executes [rollup](https://www.npmjs.com/package/rollup) to bundle your types into 1 `index.d.ts` file, output to the configured `dist` directory.
-4. It removes all other `.d.ts` and `.d.ts.map` files from your configured `dist` directory as they are now superfluous.
+1. It cleans the configured distribution directory (`--dist` flag or `dist` in
+   config).
+2. It calls the `--build-script` (or `buildScript` in config) to build your code
+   with your compiler. This defaults to `build`.
+3. It executes [rollup] to bundle your types into 1 `index.d.ts` file, output to
+   the configured `dist` directory.
+4. It removes all other `.d.ts` and `.d.ts.map` files from your configured
+   `dist` directory as they are now superfluous.
+
+[rollup]: https://www.npmjs.com/package/rollup
+[rollup-plugin-dts]: https://www.npmjs.com/package/rollup-plugin-dts
 
 ## Installation
 
-You can use the following command to install this package, or replace `npm install -D` with your package manager of choice.
+You can use the following command to install this package, or replace
+`npm install -D` with your package manager of choice.
 
 ```sh
 npm install -D @favware/rollup-type-bundler
@@ -84,23 +106,22 @@ Options:
   -h, --help                        display help for command
 ```
 
-Or you can provide most of these options through a configuration file. The following files are supported:
+Or, you can set most of these options through a configuration file. This
+file should be located at your current working directory (where you're
+calling this package) or at a path you'll have to provide using
+`--config`. It should be named `.rollup-type-bundlerrc`, optionally
+suffixed with `.json`, `.yaml`, or `.yml`.
 
-- `.rollup-type-bundlerrc`
-- `.rollup-type-bundlerrc.json`
-- `.rollup-type-bundlerrc.yaml`
-- `.rollup-type-bundlerrc.yml`
-
-The file should either be located at the current working directory from where this rollup-type-bundler is called, or provided as a custom path with `--config`.
-
-### Fields in config file
+### Config file fields
 
 - `--dist` maps to `dist`
 - `--build-script` maps to `buildScript`
 - `--verbose` maps to `verbose`
 - `--external` maps to `external`
 
-When using `.rollup-type-bundlerrc` or `.rollup-type-bundlerrc.json` as your config file you can also use the JSON schema to get schema validation. Add to your config file:
+When using `.rollup-type-bundlerrc` or `.rollup-type-bundlerrc.json` as
+your config file you can also use the JSON schema to get schema
+validation. To do so, add the following to your config file:
 
 ```json
 {
@@ -120,7 +141,7 @@ When using `.rollup-type-bundlerrc` or `.rollup-type-bundlerrc.json` as your con
 }
 ```
 
-**Example Yaml file**:
+**Example YAML file**:
 
 ```yaml
 dist: './dist'
@@ -133,9 +154,14 @@ external:
 
 ## Buy us some doughnuts
 
-Favware projects is and always will be open source, even if we don't get donations. That being said, we know there are amazing people who may still want to donate just to show their appreciation. Thank you very much in advance!
+Favware projects are and always will be open source, even if we don't get
+donations. That being said, we know there are amazing people who may still
+want to donate just to show their appreciation. Thank you very much in
+advance!
 
-We accept donations through Ko-fi, Paypal, Patreon, GitHub Sponsorships, and various crypto currencies. You can use the buttons below to donate through your method of choice.
+We accept donations through Ko-fi, Paypal, Patreon, GitHub Sponsorships,
+and various cryptocurrencies. You can use the buttons below to donate
+through your method of choice.
 
 |   Donate With   |                      Address                      |
 | :-------------: | :-----------------------------------------------: |
