@@ -3,7 +3,7 @@ name: Continuous Delivery
 on:
   push:
     branches:
-      - main-off
+      - main
 
 jobs:
   Publish:
