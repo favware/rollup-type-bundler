@@ -28,7 +28,8 @@ export async function buildCode(options: Options): Promise<void> {
         options.buildScript ? `The build script I received is: ${options.buildScript}` : undefined,
         'Furthermore, the exact error that occurred is: ',
         err
-      ].filter(Boolean)
+      ].filter(Boolean),
+      exitAfterLog: true
     });
   }
 }
