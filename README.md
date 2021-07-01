@@ -71,14 +71,12 @@ npx @favware/rollup-type-bundler --dist ./dist # Add any other flags or use --he
 
 You can provide all options through CLI flags:
 
-<!-- TODO: Update with --config flag -->
-
 ```sh
 Usage: rollup-type-bundler [options]
 
 Options:
   -V, --version                     output the version number
-  -d, --dist <distDirectory>        The dist directory to target
+  -d, --dist <dist>                 The dist directory to target
   -b, --build-script [buildScript]  The build script to call after cleaning your dist directory (default: "build")
   -v, --verbose                     Print verbose information (default: false)
   -e, --external [external...]      Repeatable, each will be treated as a new entry. Library or libraries to treat as external in Rollup (see:
