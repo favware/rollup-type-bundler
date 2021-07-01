@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
+import { buildCode } from '#commands/build-code';
 import { cleanDist } from '#commands/clean-dist';
 import { cleanExtraneousTypes } from '#commands/clean-extraneous-types';
 import { cliRootDir, indent, packageCwd } from '#lib/constants';
 import { logVerboseError, logVerboseInfo } from '#lib/logVerbose';
 import { parseOptionsFile } from '#lib/optionsParser';
-import { dirExitsAsync, fileExistsAsync } from '#lib/promisified';
+import { fileExistsAsync } from '#lib/promisified';
 import { cyan } from 'colorette';
 import { Command } from 'commander';
 import { readFile } from 'fs/promises';
@@ -45,7 +46,8 @@ logVerboseInfo(
 
 const packageJsonPath = join(packageCwd, 'package.json');
 const packageJsonExistsInCwd = await fileExistsAsync(packageJsonPath);
-const distPathExistsInCwd = await dirExitsAsync(options.dist);
+
+logVerboseInfo(['Checking if package.json exists in the current working directory'], options.verbose);
 
 if (!packageJsonExistsInCwd) {
   logVerboseError({
@@ -56,21 +58,22 @@ if (!packageJsonExistsInCwd) {
   });
 }
 
-if (!distPathExistsInCwd) {
-  logVerboseError({
-    text: ['Could not find the provided "dist" directory. Check the path you provided with "--dist" or at the "dist" key in the config file!'],
-    verbose: options.verbose,
-    verboseText: ['I detected this dist directory: ', JSON.stringify(options.dist)],
-    exitAfterLog: true
-  });
-}
+logVerboseInfo(['Cleaning the configured "dist" path'], options.verbose);
 
 /**
  * Clean the dist directory
  */
-cleanDist(options);
+await cleanDist(options);
+
+logVerboseInfo(['Compiling your TypeScript source code'], options.verbose);
+/**
+ * Calls the configured {@link Options.buildScript} to compile the TypeScript code
+ */
+await buildCode(options);
+
+logVerboseInfo(['Cleaning extraneous types from the "dist" path'], options.verbose);
 
 /**
  * Cleans extraneous types from the dist directory
  */
-cleanExtraneousTypes(options);
+await cleanExtraneousTypes(options);
