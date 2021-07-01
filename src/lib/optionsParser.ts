@@ -14,6 +14,11 @@ import { load } from 'js-yaml';
 import { join } from 'path';
 import { pathToFileURL } from 'url';
 
+/**
+ * Parses a YAML or JSON options file and merges that with CLI provided options
+ * @param cliOptions The base CLI options to merge with the options found in a YAML or JSON file, if any
+ * @returns The YAML or JSON file provided options with anything passed through the CLI overriding it. Also calls {@link transformOptionsDistPathToFileUrl}
+ */
 export async function parseOptionsFile(cliOptions: Options) {
   const rollupTypeBundlerRcExists = await fileExistsAsync(rollupTypeBundlerRcPath);
   const rollupTypeBundlerRcJsonExists = await fileExistsAsync(rollupTypeBundlerRcJsonPath);
@@ -24,7 +29,13 @@ export async function parseOptionsFile(cliOptions: Options) {
 
   if (rollupTypeBundlerRcYamlExists || rollupTypeBundlerRcYmlExists) {
     try {
-      options = await readYaml(rollupTypeBundlerRcYamlExists ? rollupTypeBundlerRcYamlPath : rollupTypeBundlerRcYmlPath);
+      const fileOptions = await readYaml<Options>(rollupTypeBundlerRcYamlExists ? rollupTypeBundlerRcYamlPath : rollupTypeBundlerRcYmlPath);
+
+      options = {
+        ...fileOptions,
+        ...options,
+        external: [...(fileOptions.external ?? []), ...(options.external ?? [])]
+      };
     } catch (err) {
       logVerboseError({
         text: ['Failed to read yaml config file'],
@@ -40,7 +51,13 @@ export async function parseOptionsFile(cliOptions: Options) {
     }
   } else if (rollupTypeBundlerRcExists || rollupTypeBundlerRcJsonExists) {
     try {
-      options = await readJson(rollupTypeBundlerRcExists ? rollupTypeBundlerRcPath : rollupTypeBundlerRcJsonPath);
+      const fileOptions = await readJson<Options>(rollupTypeBundlerRcExists ? rollupTypeBundlerRcPath : rollupTypeBundlerRcJsonPath);
+
+      options = {
+        ...fileOptions,
+        ...options,
+        external: [...(fileOptions.external ?? []), ...(options.external ?? [])]
+      };
     } catch (err) {
       logVerboseError({
         text: ['Failed to read json config file'],
@@ -59,14 +76,27 @@ export async function parseOptionsFile(cliOptions: Options) {
   return transformOptionsDistPathToFileUrl(options);
 }
 
-async function readYaml<T>(pathLike: PathLike) {
+/**
+ * Parsed a YAML file into an `Object` of type `T`
+ * @param pathLike The {@link PathLike} to read with {@link readFile}
+ */
+async function readYaml<T>(pathLike: PathLike): Promise<T> {
   return load(await readFile(pathLike, { encoding: 'utf-8' })) as unknown as T;
 }
 
-async function readJson<T>(pathLike: PathLike) {
+/**
+ * Parses a JSON file into an `Object` of type `T`
+ * @param pathLike The {@link PathLike} to read with {@link readFile}
+ */
+async function readJson<T>(pathLike: PathLike): Promise<T> {
   return JSON.parse(await readFile(pathLike, { encoding: 'utf-8' })) as T;
 }
 
+/**
+ * Transforms the {@link Options} object to have a `dist` directory relative to the current working directory and as a file {@link URL}
+ * @param options The options to parse
+ * @returns The same options object, with the `dist` transformed.
+ */
 function transformOptionsDistPathToFileUrl(options: Options): Options {
   const distPath = Reflect.get(options, 'dist');
 
