@@ -1,7 +1,7 @@
 import type { Options } from '#lib/interfaces';
 import { logVerboseError } from '#lib/logVerbose';
 import { opendir, rm } from 'fs/promises';
-import { join, sep } from 'path';
+import { basename, join, sep } from 'path';
 import { fileURLToPath, URL } from 'url';
 
 /**
@@ -32,7 +32,7 @@ export async function cleanExtraneousTypes(options: Options): Promise<void> {
     const cb = (path: string) => regexp.test(path);
 
     for await (const path of scan(options.dist, cb)) {
-      if (!path.endsWith(`dist${sep}index.d.ts`)) {
+      if (!path.endsWith(`${basename(fileURLToPath(options.dist))}${sep}index.d.ts`)) {
         await rm(path);
       }
     }
