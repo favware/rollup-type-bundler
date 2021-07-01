@@ -23,6 +23,7 @@
   ],
   "scripts": {
     "lint": "eslint src --ext ts --fix",
+    "debug": "node . -v --dist .\\build\\",
     "format": "prettier --write src/**/*.ts",
     "update": "yarn upgrade-interactive --latest",
     "clean": "node scripts/clean.mjs",
