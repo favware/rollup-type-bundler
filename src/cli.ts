@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { buildCode } from '#commands/build-code';
+import { bundleTypes } from '#commands/bundle-types';
 import { cleanDist } from '#commands/clean-dist';
 import { cleanExtraneousTypes } from '#commands/clean-extraneous-types';
 import { cliRootDir, indent, packageCwd } from '#lib/constants';
@@ -58,22 +59,34 @@ if (!packageJsonExistsInCwd) {
   });
 }
 
-logVerboseInfo(['Cleaning the configured "dist" path'], options.verbose);
-
 /**
- * Clean the dist directory
- */
+|---------------------------|
+| Purges the dist directory |
+|---------------------------|
+*/
+logVerboseInfo(['Cleaning the configured "dist" path'], options.verbose);
 await cleanDist(options);
 
-logVerboseInfo(['Compiling your TypeScript source code'], options.verbose);
 /**
- * Calls the configured {@link Options.buildScript} to compile the TypeScript code
- */
+|---------------------------------------------------------------------------------|
+| Calls the configured {@link Options.buildScript} to compile the TypeScript code |
+|---------------------------------------------------------------------------------|
+*/
+logVerboseInfo(['Compiling your TypeScript source code'], options.verbose);
 await buildCode(options);
 
-logVerboseInfo(['Cleaning extraneous types from the "dist" path'], options.verbose);
+/**
+|-------------------------------------|
+| Bundle TypeScript types with Rollup |
+|-------------------------------------|
+*/
+logVerboseInfo(['Bundling TypeScript types'], options.verbose);
+await bundleTypes(options);
 
 /**
- * Cleans extraneous types from the dist directory
- */
+|-------------------------------------------------|
+| Cleans extraneous types from the dist directory |
+|-------------------------------------------------|
+*/
+logVerboseInfo(['Cleaning extraneous types from the "dist" path'], options.verbose);
 await cleanExtraneousTypes(options);

@@ -3,9 +3,19 @@ import type { Options } from '#lib/interfaces';
 import { logVerboseError } from '#lib/logVerbose';
 import { execAsync } from '#lib/promisified';
 
+/**
+ * Calls the configured `buildScript`, or "build" if none, to compile the TypeScript code
+ * @param options The options that tell this function where to clean up
+ */
 export async function buildCode(options: Options): Promise<void> {
   try {
-    await execAsync(options.buildScript ? `npm run ${options.buildScript} --prefix ${packageCwd}` : `npm run build --prefix ${packageCwd}`);
+    await execAsync(options.buildScript ? `npm run ${options.buildScript}` : `npm run build`, {
+      cwd: packageCwd,
+      env: {
+        ...process.env,
+        NODE_ENV: 'development'
+      }
+    });
   } catch (err) {
     logVerboseError({
       text: [
