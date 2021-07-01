@@ -8,9 +8,7 @@ import {
 import type { Options } from '#lib/interfaces';
 import { logVerboseError } from '#lib/logVerbose';
 import { fileExistsAsync } from '#lib/promisified';
-import type { PathLike } from 'fs';
-import { readFile } from 'fs/promises';
-import { load } from 'js-yaml';
+import { readJson, readYaml } from '#lib/utils';
 import { join } from 'path';
 import { pathToFileURL } from 'url';
 
@@ -74,22 +72,6 @@ export async function parseOptionsFile(cliOptions: Options) {
   }
 
   return transformOptionsDistPathToFileUrl(options);
-}
-
-/**
- * Parsed a YAML file into an `Object` of type `T`
- * @param pathLike The {@link PathLike} to read with {@link readFile}
- */
-async function readYaml<T>(pathLike: PathLike): Promise<T> {
-  return load(await readFile(pathLike, { encoding: 'utf-8' })) as unknown as T;
-}
-
-/**
- * Parses a JSON file into an `Object` of type `T`
- * @param pathLike The {@link PathLike} to read with {@link readFile}
- */
-async function readJson<T>(pathLike: PathLike): Promise<T> {
-  return JSON.parse(await readFile(pathLike, { encoding: 'utf-8' })) as T;
 }
 
 /**
