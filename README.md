@@ -50,7 +50,7 @@ npm install -D @favware/rollup-type-bundler
 
 Or install it globally:
 
-```
+```sh
 npm install -g @favware/rollup-type-bundler
 ```
 
