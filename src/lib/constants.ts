@@ -11,13 +11,13 @@ export const packageCwd = process.cwd();
 export const rollupTypeBundlerRcPath = join(packageCwd, '.rollup-type-bundlerrc');
 
 /** Path to the config file in .json format */
-export const rollupTypeBundlerRcJsonPath = join(rollupTypeBundlerRcPath, '.json');
+export const rollupTypeBundlerRcJsonPath = `${rollupTypeBundlerRcPath}.json`;
 
 /** Path to the config file in .yml format */
-export const rollupTypeBundlerRcYmlPath = join(rollupTypeBundlerRcPath, '.yml');
+export const rollupTypeBundlerRcYmlPath = `${rollupTypeBundlerRcPath}.yml`;
 
 /** Path to the config file in .yaml format */
-export const rollupTypeBundlerRcYamlPath = join(rollupTypeBundlerRcPath, '.yaml');
+export const rollupTypeBundlerRcYamlPath = `${rollupTypeBundlerRcPath}.yaml`;
 
 /** 4 spaces indent for logging */
 export const indent = ' '.repeat(4);
