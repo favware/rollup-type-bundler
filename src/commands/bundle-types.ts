@@ -1,16 +1,17 @@
 import type { Options } from '#lib/interfaces';
 import { fileExistsAsync } from '#lib/promisified';
+import { join } from 'path';
 import { rollup } from 'rollup';
 import dts from 'rollup-plugin-dts';
-import { fileURLToPath, URL } from 'url';
 import { setTimeout as sleep } from 'timers/promises';
+import { fileURLToPath } from 'url';
 
 /**
  * Bundles all the TypeScript types with {@link rollup}
  * @param options The options that tell this function where to clean up
  */
 export async function bundleTypes(options: Options): Promise<void> {
-  const typingsFile = fileURLToPath(new URL('index.d.ts', options.dist));
+  const typingsFile = join(fileURLToPath(options.dist), 'index.d.ts');
 
   // Sleep repeated 1 second until the `index.d.ts` file exists
   do {
