@@ -8,7 +8,8 @@ import { cliRootDir, indent, packageCwd } from '#lib/constants';
 import { logVerboseError, logVerboseInfo } from '#lib/logVerbose';
 import { parseOptionsFile } from '#lib/optionsParser';
 import { fileExistsAsync } from '#lib/promisified';
-import { cyan, green } from 'colorette';
+import { doActionAndLog } from '#lib/utils';
+import { cyan } from 'colorette';
 import { Command } from 'commander';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
@@ -46,10 +47,11 @@ logVerboseInfo(
 );
 
 const packageJsonPath = join(packageCwd, 'package.json');
-const packageJsonExistsInCwd = await fileExistsAsync(packageJsonPath);
 
-console.log(cyan('Checking if package.json exists in the current working directory'));
-console.log(green('✅ Done, package.json found'));
+const packageJsonExistsInCwd = await doActionAndLog(
+  'Checking if package.json exists in the current working directory',
+  fileExistsAsync(packageJsonPath)
+);
 
 if (!packageJsonExistsInCwd) {
   logVerboseError({
@@ -65,33 +67,25 @@ if (!packageJsonExistsInCwd) {
 | Purges the dist directory |
 |---------------------------|
 */
-console.log(cyan('Cleaning the configured "dist" path'));
-await cleanDist(options);
-console.log(green('✅ Done, old "dist" folder removed'));
+await doActionAndLog('Cleaning the configured "dist" path', cleanDist(options));
 
 /**
 |---------------------------------------------------------------------------------|
 | Calls the configured {@link Options.buildScript} to compile the TypeScript code |
 |---------------------------------------------------------------------------------|
 */
-console.log(cyan('Compiling your TypeScript source code'));
-await buildCode(options);
-console.log(green('✅ Done, TypeScript code compiled'));
+await doActionAndLog('Compiling your TypeScript source code', buildCode(options));
 
 /**
 |-------------------------------------|
 | Bundle TypeScript types with Rollup |
 |-------------------------------------|
 */
-console.log(cyan('Bundling TypeScript types'));
-await bundleTypes(options);
-console.log(green('✅ Done, TypeScript types bundled up'));
+await doActionAndLog('Bundling TypeScript types', bundleTypes(options));
 
 /**
 |-------------------------------------------------|
 | Cleans extraneous types from the dist directory |
 |-------------------------------------------------|
 */
-console.log(cyan('Cleaning extraneous types from the "dist" path'));
-await cleanExtraneousTypes(options);
-console.log(green('✅ Done, Extraneous types removed'));
+await doActionAndLog('Cleaning extraneous types from the "dist" path', cleanExtraneousTypes(options));

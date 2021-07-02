@@ -14,7 +14,7 @@ export async function cleanDist(options: Options): Promise<void> {
       text: ['Failed to clean the configured "dist" directory. Is the path accessible?'],
       verbose: options.verbose,
       verboseText: ['The error message that was thrown is: ', error],
-      exitAfterLog: true
+      logWithThrownError: true
     });
   }
 }

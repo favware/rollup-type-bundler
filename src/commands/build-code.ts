@@ -20,8 +20,8 @@ export async function buildCode(options: Options): Promise<void> {
     logVerboseError({
       text: [
         'An error occurred while building the TypeScript code',
-        `${indent}If you provided a custom build script with "-b" or "--build-script", or through "buildScript" in a config file, then make that script actually exists in your "package.json"`,
-        `${indent}If you did not provide this option, then make sure there is a script called "build" in your "package.json"`
+        `${indent}If you provided a custom build script with "-b" or "--build-script", or through "buildScript" in a config file, then make that script actually exists in your "package.json".`,
+        `${indent}If you did not provide this option, then make sure there is a script called "build" in your "package.json".`
       ],
       verbose: options.verbose,
       verboseText: [
@@ -29,7 +29,7 @@ export async function buildCode(options: Options): Promise<void> {
         'Furthermore, the exact error that occurred is: ',
         err
       ].filter(Boolean),
-      exitAfterLog: true
+      logWithThrownError: true
     });
   }
 }

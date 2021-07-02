@@ -44,7 +44,8 @@ export async function parseOptionsFile(cliOptions: Options) {
           '',
           'Full error: ',
           err
-        ]
+        ],
+        exitAfterLog: true
       });
     }
   } else if (rollupTypeBundlerRcExists || rollupTypeBundlerRcJsonExists) {
@@ -66,7 +67,8 @@ export async function parseOptionsFile(cliOptions: Options) {
           '',
           'Full error: ',
           err
-        ]
+        ],
+        exitAfterLog: true
       });
     }
   }
@@ -85,7 +87,7 @@ function transformOptionsDistPathToFileUrl(options: Options): Options {
   if (!distPath) {
     logVerboseError({
       text: [
-        'You did not provide a path to your "dist" folder. Please do so either with the "--dist" flag, or by creating a config file',
+        'You did not provide a path to your "dist" folder. Please do so either with the "--dist" flag, or by creating a config file.',
         "For more information, see this project's README here: https://github.com/favware/rollup-type-bundler#usage "
       ],
       exitAfterLog: true

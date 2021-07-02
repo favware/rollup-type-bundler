@@ -4,23 +4,33 @@ import { cyan, red } from 'colorette';
  * Logs an error and appends extra information if verbose is on
  * @param param See {@link LogVerboseErrorOptions}
  */
-export function logVerboseError({ text, verbose = false, verboseText = [], exitAfterLog: exitOnLog = false }: LogVerboseErrorOptions) {
-  let combinedText = text;
-
+export function logVerboseError({
+  text,
+  verbose = false,
+  verboseText = [],
+  exitAfterLog = false,
+  logWithThrownError = false
+}: LogVerboseErrorOptions) {
   if (verbose) {
-    combinedText = combinedText.concat(verboseText);
+    text = text.concat(verboseText);
   }
 
-  console.error(red(combinedText.join('\n')));
+  const message = red(text.join('\n'));
 
-  if (exitOnLog) {
+  if (logWithThrownError) {
+    throw new Error(message);
+  } else {
+    console.error('\n', message);
+  }
+
+  if (exitAfterLog && !logWithThrownError) {
     process.exit(1);
   }
 }
 
 export function logVerboseInfo(text: string[], verbose = false) {
   if (verbose) {
-    console.info(cyan(text.join('\n')));
+    console.log(cyan(text.join('\n')));
   }
 }
 
@@ -36,4 +46,6 @@ interface LogVerboseErrorOptions {
   verboseText?: string[];
   /** Whether to call `process.exit(1)` after logging */
   exitAfterLog?: boolean;
+  /** Whether instead of using `console.error` this should use `throw new Error` */
+  logWithThrownError?: boolean;
 }
