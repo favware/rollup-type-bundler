@@ -5,7 +5,6 @@
 **A small CLI tool to bundle types with rollup**
 
 [![GitHub](https://img.shields.io/github/license/favware/rollup-type-bundler)](https://github.com/favware/rollup-type-bundler/blob/main/LICENSE)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/@favware/rollup-type-bundler?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@favware/rollup-type-bundler)
 [![npm](https://img.shields.io/npm/v/@favware/rollup-type-bundler?color=crimson&logo=npm)](https://www.npmjs.com/package/@favware/rollup-type-bundler)
 [![Depfu](https://badges.depfu.com/badges/97d09026f35f8886a8bca2e8c7caa533/count.svg)](https://depfu.com/github/favware/rollup-type-bundler?project_id=28226)
 
