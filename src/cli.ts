@@ -8,7 +8,7 @@ import { cliRootDir, indent, packageCwd } from '#lib/constants';
 import { logVerboseError, logVerboseInfo } from '#lib/logVerbose';
 import { parseOptionsFile } from '#lib/optionsParser';
 import { fileExistsAsync } from '#lib/promisified';
-import { cyan } from 'colorette';
+import { cyan, green } from 'colorette';
 import { Command } from 'commander';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
@@ -49,6 +49,7 @@ const packageJsonPath = join(packageCwd, 'package.json');
 const packageJsonExistsInCwd = await fileExistsAsync(packageJsonPath);
 
 console.log(cyan('Checking if package.json exists in the current working directory'));
+console.log(green('✅ Done, package.json found'));
 
 if (!packageJsonExistsInCwd) {
   logVerboseError({
@@ -66,6 +67,7 @@ if (!packageJsonExistsInCwd) {
 */
 console.log(cyan('Cleaning the configured "dist" path'));
 await cleanDist(options);
+console.log(green('✅ Done, old "dist" folder removed'));
 
 /**
 |---------------------------------------------------------------------------------|
@@ -74,6 +76,7 @@ await cleanDist(options);
 */
 console.log(cyan('Compiling your TypeScript source code'));
 await buildCode(options);
+console.log(green('✅ Done, TypeScript code compiled'));
 
 /**
 |-------------------------------------|
@@ -82,6 +85,7 @@ await buildCode(options);
 */
 console.log(cyan('Bundling TypeScript types'));
 await bundleTypes(options);
+console.log(green('✅ Done, TypeScript types bundled up'));
 
 /**
 |-------------------------------------------------|
@@ -90,3 +94,4 @@ await bundleTypes(options);
 */
 console.log(cyan('Cleaning extraneous types from the "dist" path'));
 await cleanExtraneousTypes(options);
+console.log(green('✅ Done, Extraneous types removed'));
