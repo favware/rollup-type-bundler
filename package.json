@@ -19,7 +19,10 @@
   "private": false,
   "files": [
     "dist",
-    "!dist/*.tsbuildinfo"
+    "!dist/*.tsbuildinfo",
+    "!dist/**/*.js.map",
+    "!dist/**/*.d.ts",
+    "!dist/**/*.d.ts.map"
   ],
   "scripts": {
     "lint": "eslint src --ext ts --fix",
