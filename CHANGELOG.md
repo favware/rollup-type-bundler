@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/favware/rollup-type-bundler/compare/v0.0.1-next.0...v1.0.0) (2021-07-02)
+
+### Features
+
+- improve logging ([7953008](https://github.com/favware/rollup-type-bundler/commit/7953008c2527e083e2eb9a2bd52fc81d88ec2b23))
+- log when steps are completed ([f2e7e3b](https://github.com/favware/rollup-type-bundler/commit/f2e7e3b7f53af3ddf4e13ae106a7258b41c7b637))
+
+### Bug Fixes
+
+- do not publish source maps ([21c9d93](https://github.com/favware/rollup-type-bundler/commit/21c9d934f2cd9505ebc51cef427ee905cec8e487))
+- ensure dist can be set through config file ([9a1b102](https://github.com/favware/rollup-type-bundler/commit/9a1b1022a3f2b2bed945e6304e8220a5f7211b27))
+- fixed file scanning in type bundler ([9375549](https://github.com/favware/rollup-type-bundler/commit/93755495277cfc2577f081236c2b169474e1b7c1))
+- fixed getting config file paths ([b644e3b](https://github.com/favware/rollup-type-bundler/commit/b644e3b23028b73878ed5f77a7d18d40c4710789))
+- use options.dist for filtering out index.d.ts in cleaning extraneous types ([53fb21e](https://github.com/favware/rollup-type-bundler/commit/53fb21e1c485400dd432fa24e59e064aeab25f91))
+- wait for files to be build before running rollup ([1eb2b07](https://github.com/favware/rollup-type-bundler/commit/1eb2b079aa7ec4d9ec60f5889f1bd244d5d4d019))
+
 ### 0.0.1-next.0 (2021-07-01)
 
 ### Features
