@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/favware/rollup-type-bundler/compare/v1.0.0...v1.0.1) (2021-07-02)
+
+### Bug Fixes
+
+- set an opinionated default of "./dist" for the "--dist" option ([3e6e096](https://github.com/favware/rollup-type-bundler/commit/3e6e096218ac8c02878bb4fc0693ab35dc78ad77))
+
 ## [1.0.0](https://github.com/favware/rollup-type-bundler/compare/v0.0.1-next.0...v1.0.0) (2021-07-02)
 
 ### Features
