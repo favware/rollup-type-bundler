@@ -48,7 +48,7 @@ logVerboseInfo(
 const packageJsonPath = join(packageCwd, 'package.json');
 const packageJsonExistsInCwd = await fileExistsAsync(packageJsonPath);
 
-logVerboseInfo(['Checking if package.json exists in the current working directory'], options.verbose);
+console.log(cyan('Checking if package.json exists in the current working directory'));
 
 if (!packageJsonExistsInCwd) {
   logVerboseError({
@@ -64,7 +64,7 @@ if (!packageJsonExistsInCwd) {
 | Purges the dist directory |
 |---------------------------|
 */
-logVerboseInfo(['Cleaning the configured "dist" path'], options.verbose);
+console.log(cyan('Cleaning the configured "dist" path'));
 await cleanDist(options);
 
 /**
@@ -72,7 +72,7 @@ await cleanDist(options);
 | Calls the configured {@link Options.buildScript} to compile the TypeScript code |
 |---------------------------------------------------------------------------------|
 */
-logVerboseInfo(['Compiling your TypeScript source code'], options.verbose);
+console.log(cyan('Compiling your TypeScript source code'));
 await buildCode(options);
 
 /**
@@ -80,7 +80,7 @@ await buildCode(options);
 | Bundle TypeScript types with Rollup |
 |-------------------------------------|
 */
-logVerboseInfo(['Bundling TypeScript types'], options.verbose);
+console.log(cyan('Bundling TypeScript types'));
 await bundleTypes(options);
 
 /**
@@ -88,5 +88,5 @@ await bundleTypes(options);
 | Cleans extraneous types from the dist directory |
 |-------------------------------------------------|
 */
-logVerboseInfo(['Cleaning extraneous types from the "dist" path'], options.verbose);
+console.log(cyan('Cleaning extraneous types from the "dist" path'));
 await cleanExtraneousTypes(options);
