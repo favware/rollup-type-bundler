@@ -82,6 +82,16 @@ export async function parseOptionsFile(cliOptions: Options) {
 function transformOptionsDistPathToFileUrl(options: Options): Options {
   const distPath = Reflect.get(options, 'dist');
 
+  if (!distPath) {
+    logVerboseError({
+      text: [
+        'You did not provide a path to your "dist" folder. Please do so either with the "--dist" flag, or by creating a config file',
+        "For more information, see this project's README here: https://github.com/favware/rollup-type-bundler#usage "
+      ],
+      exitAfterLog: true
+    });
+  }
+
   return {
     ...options,
     dist: pathToFileURL(join(packageCwd, distPath))

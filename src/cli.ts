@@ -19,7 +19,7 @@ const packageJson = JSON.parse(await readFile(packageFile, 'utf-8'));
 
 const command = new Command()
   .version(packageJson.version)
-  .requiredOption('-d, --dist <dist>', 'The dist directory to target')
+  .option('-d, --dist <dist>', 'The dist directory to target')
   .option('-b, --build-script [buildScript]', 'The build script to call after cleaning your dist directory', 'build')
   .option('-v, --verbose', 'Print verbose information', false)
   .option(
