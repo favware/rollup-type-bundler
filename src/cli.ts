@@ -12,7 +12,7 @@ import { doActionAndLog } from '#lib/utils';
 import { cyan } from 'colorette';
 import { Command } from 'commander';
 import { readFile } from 'fs/promises';
-import { join } from 'path';
+import { join, sep } from 'path';
 import { URL } from 'url';
 
 const packageFile = new URL('package.json', cliRootDir);
@@ -20,7 +20,7 @@ const packageJson = JSON.parse(await readFile(packageFile, 'utf-8'));
 
 const command = new Command()
   .version(packageJson.version)
-  .option('-d, --dist <dist>', 'The dist directory to target')
+  .option('-d, --dist <dist>', 'The dist directory to target', `.${sep}dist`)
   .option('-b, --build-script [buildScript]', 'The build script to call after cleaning your dist directory', 'build')
   .option('-v, --verbose', 'Print verbose information', false)
   .option(

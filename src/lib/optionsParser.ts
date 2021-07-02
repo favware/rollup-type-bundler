@@ -9,7 +9,7 @@ import type { Options } from '#lib/interfaces';
 import { logVerboseError } from '#lib/logVerbose';
 import { fileExistsAsync } from '#lib/promisified';
 import { readJson, readYaml } from '#lib/utils';
-import { join } from 'path';
+import { join, sep } from 'path';
 import { pathToFileURL } from 'url';
 
 /**
@@ -82,17 +82,7 @@ export async function parseOptionsFile(cliOptions: Options) {
  * @returns The same options object, with the `dist` transformed.
  */
 function transformOptionsDistPathToFileUrl(options: Options): Options {
-  const distPath = Reflect.get(options, 'dist');
-
-  if (!distPath) {
-    logVerboseError({
-      text: [
-        'You did not provide a path to your "dist" folder. Please do so either with the "--dist" flag, or by creating a config file.',
-        "For more information, see this project's README here: https://github.com/favware/rollup-type-bundler#usage "
-      ],
-      exitAfterLog: true
-    });
-  }
+  const distPath = Reflect.get(options, 'dist') ?? `.${sep}dist`;
 
   return {
     ...options,

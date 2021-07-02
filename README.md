@@ -97,7 +97,7 @@ Usage: rollup-type-bundler [options]
 
 Options:
   -V, --version                     output the version number
-  -d, --dist <dist>                 The dist directory to target
+  -d, --dist <dist>                 The dist directory to target (default: "./dist")
   -b, --build-script [buildScript]  The build script to call after cleaning your dist directory (default: "build")
   -v, --verbose                     Print verbose information (default: false)
   -e, --external [external...]      Repeatable, each will be treated as a new entry. Library or libraries to treat as external in Rollup (see:
@@ -149,6 +149,15 @@ external:
   - stream
   - url
 ```
+
+### Default values
+
+This library has opinionated defaults for its options. These are as follows:
+
+- `--dist` will default to `./dist`, using the current working directory as the reference point for the relative path.
+- `--build-script` will default to `build`.
+- `--verbose` will default to `false`.
+- `--external` will default to `[]`.
 
 ## Buy us some doughnuts
 
