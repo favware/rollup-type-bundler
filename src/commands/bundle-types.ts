@@ -18,15 +18,15 @@ export async function bundleTypes(options: Options): Promise<void> {
     await sleep(1000);
   } while (!(await fileExistsAsync(typingsFile)));
 
-  await rollup({
+  const bundle = await rollup({
     input: typingsFile,
-
-    output: {
-      file: typingsFile,
-      format: 'es'
-    },
     external: options.external,
     plugins: [dts()],
     cache: false
+  });
+
+  await bundle.write({
+    file: typingsFile,
+    format: 'es'
   });
 }
