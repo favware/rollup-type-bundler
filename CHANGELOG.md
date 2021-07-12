@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/favware/rollup-type-bundler/compare/v1.0.2...v1.0.3) (2021-07-12)
+
+### Bug Fixes
+
+- change engine requirement from Node 16 to Node 14 ([6ba5e28](https://github.com/favware/rollup-type-bundler/commit/6ba5e28dad22534ff673650b76da90c437b7f0d7))
+
 ### [1.0.2](https://github.com/favware/rollup-type-bundler/compare/v1.0.1...v1.0.2) (2021-07-04)
 
 ### Bug Fixes
