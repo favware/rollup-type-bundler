@@ -51,7 +51,7 @@
     "@sapphire/eslint-config": "^3.2.3",
     "@sapphire/prettier-config": "^1.1.4",
     "@sapphire/ts-config": "^2.3.2",
-    "@types/js-yaml": "^4.0.2",
+    "@types/js-yaml": "^4.0.3",
     "@types/node": "^15.14.9",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^6.0.0",
