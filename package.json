@@ -39,6 +39,7 @@
     "prepare": "husky install .github/husky"
   },
   "dependencies": {
+    "@sapphire/utilities": "^2.0.1",
     "colorette": "^1.3.0",
     "commander": "^8.1.0",
     "js-yaml": "^4.1.0",

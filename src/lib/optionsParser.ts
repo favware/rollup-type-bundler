@@ -35,6 +35,8 @@ export async function parseOptionsFile(cliOptions: Options) {
         external: [...(fileOptions.external ?? []), ...(options.external ?? [])]
       };
     } catch (err) {
+      const typedError = err as Error;
+
       logVerboseError({
         text: ['Failed to read yaml config file'],
         verbose: options.verbose,
@@ -43,7 +45,7 @@ export async function parseOptionsFile(cliOptions: Options) {
           rollupTypeBundlerRcYamlExists ? rollupTypeBundlerRcYamlPath : rollupTypeBundlerRcYmlPath,
           '',
           'Full error: ',
-          err
+          typedError.stack ?? typedError.message
         ],
         exitAfterLog: true
       });
@@ -58,6 +60,8 @@ export async function parseOptionsFile(cliOptions: Options) {
         external: [...(fileOptions.external ?? []), ...(options.external ?? [])]
       };
     } catch (err) {
+      const typedError = err as Error;
+
       logVerboseError({
         text: ['Failed to read json config file'],
         verbose: options.verbose,
@@ -66,7 +70,7 @@ export async function parseOptionsFile(cliOptions: Options) {
           rollupTypeBundlerRcExists ? rollupTypeBundlerRcPath : rollupTypeBundlerRcJsonPath,
           '',
           'Full error: ',
-          err
+          typedError.stack ?? typedError.message
         ],
         exitAfterLog: true
       });

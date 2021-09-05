@@ -1,3 +1,4 @@
+import { filterNullish } from '@sapphire/utilities';
 import { cyan, red } from 'colorette';
 
 /**
@@ -12,7 +13,7 @@ export function logVerboseError({
   logWithThrownError = false
 }: LogVerboseErrorOptions) {
   if (verbose) {
-    text = text.concat(verboseText);
+    text = text.concat(verboseText.filter(filterNullish));
   }
 
   const message = red(text.join('\n'));
@@ -43,7 +44,7 @@ interface LogVerboseErrorOptions {
   /** Whether to output {@link LogVerboseErrorOptions.verboseText} */
   verbose?: boolean;
   /** The text to log if {@link LogVerboseErrorOptions.verbose} is `true` */
-  verboseText?: string[];
+  verboseText?: (string | undefined)[];
   /** Whether to call `process.exit(1)` after logging */
   exitAfterLog?: boolean;
   /** Whether instead of using `console.error` this should use `throw new Error` */
