@@ -37,10 +37,17 @@ export async function cleanExtraneousTypes(options: Options): Promise<void> {
       }
     }
   } catch (err) {
+    const typedError = err as Error;
+
     logVerboseError({
       text: ['An error occurred while removing one or more of the extraneous types from the `dist` directory.', 'Please remove them manually'],
       verbose: options.verbose,
-      verboseText: ['I was scanning this dist path: ', options.dist.toString(), 'Furthermore, the exact error that occurred is: ', err],
+      verboseText: [
+        'I was scanning this dist path: ',
+        options.dist.toString(),
+        'Furthermore, the exact error that occurred is: ',
+        typedError.stack ?? typedError.message
+      ],
       logWithThrownError: true
     });
   }

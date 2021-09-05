@@ -17,6 +17,7 @@ export async function buildCode(options: Options): Promise<void> {
       }
     });
   } catch (err) {
+    const typedError = err as Error;
     logVerboseError({
       text: [
         'An error occurred while building the TypeScript code',
@@ -27,7 +28,7 @@ export async function buildCode(options: Options): Promise<void> {
       verboseText: [
         options.buildScript ? `The build script I received is: ${options.buildScript}` : undefined,
         'Furthermore, the exact error that occurred is: ',
-        err
+        typedError.stack ?? typedError.message
       ].filter(Boolean),
       logWithThrownError: true
     });
