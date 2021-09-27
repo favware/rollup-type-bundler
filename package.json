@@ -63,7 +63,7 @@
     "typescript": "^4.4.3"
   },
   "engines": {
-    "node": ">=14",
+    "node": ">=v14.17.6",
     "npm": ">=6"
   },
   "repository": {
