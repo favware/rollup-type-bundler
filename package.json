@@ -43,7 +43,7 @@
     "colorette": "^1.4.0",
     "commander": "^8.2.0",
     "js-yaml": "^4.1.0",
-    "rollup": "^2.56.3",
+    "rollup": "^2.57.0",
     "rollup-plugin-dts": "^3.0.2"
   },
   "devDependencies": {
