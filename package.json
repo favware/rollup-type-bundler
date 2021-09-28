@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@sapphire/utilities": "^2.0.1",
-    "colorette": "^1.4.0",
+    "colorette": "^2.0.12",
     "commander": "^8.2.0",
     "js-yaml": "^4.1.0",
     "rollup": "^2.57.0",
