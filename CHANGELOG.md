@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/favware/rollup-type-bundler/compare/v1.0.3...v1.0.4) (2021-10-01)
+
+### Bug Fixes
+
+- **deps:** update dependency colorette to v2 ([#28](https://github.com/favware/rollup-type-bundler/issues/28)) ([91e78dd](https://github.com/favware/rollup-type-bundler/commit/91e78dd18217daa5e0d4f2d170de74094d31c9ce))
+- **deps:** update dependency rollup to ^2.57.0 ([418f97a](https://github.com/favware/rollup-type-bundler/commit/418f97aea3a0aae9d028edd0e8fb7be3078b3155))
+- **deps:** update dependency rollup-plugin-dts to v4 ([#29](https://github.com/favware/rollup-type-bundler/issues/29)) ([1ce08d6](https://github.com/favware/rollup-type-bundler/commit/1ce08d6c0726afd322fea85cc80955debb94ab42))
+
 ### [1.0.3](https://github.com/favware/rollup-type-bundler/compare/v1.0.2...v1.0.3) (2021-07-12)
 
 ### Bug Fixes
