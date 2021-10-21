@@ -3,8 +3,10 @@ import { fileExistsAsync } from '#lib/promisified';
 import { join } from 'path';
 import { rollup } from 'rollup';
 import dts from 'rollup-plugin-dts';
-import { setTimeout as sleep } from 'timers/promises';
 import { fileURLToPath } from 'url';
+import { promisify } from 'util';
+
+const sleep = promisify(setTimeout);
 
 /**
  * Bundles all the TypeScript types with {@link rollup}
