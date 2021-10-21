@@ -1,6 +1,6 @@
 {
   "name": "@favware/rollup-type-bundler",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A small CLI tool to bundle types with rollup",
   "author": "@favware",
   "license": "MIT",
