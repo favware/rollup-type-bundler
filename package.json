@@ -43,8 +43,8 @@
     "colorette": "^2.0.16",
     "commander": "^8.3.0",
     "js-yaml": "^4.1.0",
-    "rollup": "^2.58.3",
-    "rollup-plugin-dts": "^4.0.0"
+    "rollup": "^2.59.0",
+    "rollup-plugin-dts": "^4.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.2.1",
