@@ -350,10 +350,10 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
-"@types/node@^16.11.11":
-  version "16.11.11"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.11.tgz#6ea7342dfb379ea1210835bada87b3c512120234"
-  integrity sha512-KB0sixD67CeecHC33MYn+eYARkqTheIRNuu97y2XMjR7Wu3XibO1vaY6VBV6O/a89SPI81cEUIYT87UqUWlZNw==
+"@types/node@^16.11.12":
+  version "16.11.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.12.tgz#ac7fb693ac587ee182c3780c26eb65546a1a3c10"
+  integrity sha512-+2Iggwg7PxoO5Kyhvsq9VarmPbIelXP070HMImEpbtGCoyWNINQj4wzjbQCXzdHTRXnqufutJb5KAURZANNBAw==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -2666,10 +2666,10 @@ rollup-plugin-dts@^4.0.1:
   optionalDependencies:
     "@babel/code-frame" "^7.14.5"
 
-rollup@^2.60.2:
-  version "2.60.2"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.60.2.tgz#3f45ace36a9b10b4297181831ea0719922513463"
-  integrity sha512-1Bgjpq61sPjgoZzuiDSGvbI1tD91giZABgjCQBKM5aYLnzjq52GoDuWVwT/cm/MCxCMPU8gqQvkj8doQ5C8Oqw==
+rollup@^2.61.1:
+  version "2.61.1"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.61.1.tgz#1a5491f84543cf9e4caf6c61222d9a3f8f2ba454"
+  integrity sha512-BbTXlEvB8d+XFbK/7E5doIcRtxWPRiqr0eb5vQ0+2paMM04Ye4PZY5nHOQef2ix24l/L0SpLd5hwcH15QHPdvA==
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -3134,6 +3134,11 @@ typescript@^4.5.2:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.2.tgz#8ac1fba9f52256fdb06fb89e4122fa6a346c2998"
   integrity sha512-5BlMof9H1yGt0P8/WF+wPNw6GfctgGjXp5hkblpyT+8rkASSmkUKMXrxR0Xg8ThVCi/JnHQiKXeBaEwCeQwMFw==
+
+typescript@^4.5.3:
+  version "4.5.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.3.tgz#afaa858e68c7103317d89eb90c5d8906268d353c"
+  integrity sha512-eVYaEHALSt+s9LbvgEv4Ef+Tdq7hBiIZgii12xXJnukryt3pMgJf6aKhoCZ3FWQsu6sydEnkg11fYXLzhLBjeQ==
 
 uglify-js@^3.1.4:
   version "3.14.2"
