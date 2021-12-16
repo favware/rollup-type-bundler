@@ -20,10 +20,10 @@ jobs:
         uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458 # renovate: tag=v2
         with:
           node-version: 16
-          registry-url: https://registry.npmjs.org/
           cache: yarn
+          registry-url: https://registry.npmjs.org/
       - name: Install Dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
       - name: Bump Version & Publish
         run: |
           TAG=$([[ ${{ github.event_name }} == 'push' ]] && echo 'next' || echo 'pr-${{ github.event.inputs.prNumber }}')
