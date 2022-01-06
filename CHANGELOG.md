@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.7](https://github.com/favware/rollup-type-bundler/compare/v1.0.6...v1.0.7) (2022-01-06)
+
+### Bug Fixes
+
+- add typescript to dependencies ([ba3cfa8](https://github.com/favware/rollup-type-bundler/commit/ba3cfa82ff167ad8721281e93766cc742c69c35f))
+- **deps:** update all non-major dependencies ([d3642ac](https://github.com/favware/rollup-type-bundler/commit/d3642ac1ae0315873c3c10691486d60c983cf545))
+
 ### [1.0.6](https://github.com/favware/rollup-type-bundler/compare/v1.0.5...v1.0.6) (2021-10-21)
 
 ### Bug Fixes
