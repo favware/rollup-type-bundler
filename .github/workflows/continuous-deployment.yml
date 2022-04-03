@@ -17,7 +17,7 @@ jobs:
       - name: Add TypeScript problem matcher
         run: echo "::add-matcher::.github/problemMatchers/tsc.json"
       - name: Use Node.js v16 with NPM Registry
-        uses: actions/setup-node@9ced9a43a244f3ac94f13bfd896db8c8f30da67a # tag=v3
+        uses: actions/setup-node@5b52f097d36d4b0b2f94ed6de710023fbb8b2236 # tag=v3
         with:
           node-version: 16
           cache: yarn
@@ -36,7 +36,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Use Node.js v16 with GitHub Package Registry
-        uses: actions/setup-node@9ced9a43a244f3ac94f13bfd896db8c8f30da67a # tag=v3
+        uses: actions/setup-node@5b52f097d36d4b0b2f94ed6de710023fbb8b2236 # tag=v3
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com
