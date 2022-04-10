@@ -105,7 +105,9 @@
     "access": "public"
   },
   "resolutions": {
-    "acorn": "^8.7.0"
+    "acorn": "^8.7.0",
+    "ansi-regex": "^5.0.1",
+    "minimist": "^1.2.6"
   },
   "eslintConfig": {
     "extends": "@sapphire"
