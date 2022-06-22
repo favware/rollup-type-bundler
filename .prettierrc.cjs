@@ -2,6 +2,16 @@ const sapphirePrettierConfig = require('@sapphire/prettier-config');
 
 module.exports = {
   ...sapphirePrettierConfig,
+  tabWidth: 2,
   useTabs: false,
-  tabWidth: 2
+  overrides: [
+    ...sapphirePrettierConfig.overrides,
+    {
+      files: ['*.md'],
+      options: {
+        printWidth: 80,
+        proseWrap: 'always'
+      }
+    }
+  ]
 };

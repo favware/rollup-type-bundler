@@ -14,15 +14,18 @@ jobs:
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
         with:
           fetch-depth: 0
-      - name: Use Node.js v16 with GitHub Package Registry
-        uses: actions/setup-node@eeb10cff27034e7acf239c5d29f62154018672fd # tag=v3
+      - name: Use Node.js v18 with GitHub Package Registry
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048 # tag=v3
         with:
-          node-version: 16
+          node-version: 18
           cache: yarn
-          registry-url: https://npm.pkg.github.com
+          registry-url: https://registry.yarnpkg.com/
       - name: Install Dependencies
         run: yarn --immutable
-      - name: Publish
-        run: npm publish || true
+      - name: Publish to GitHub
+        run: |
+          yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
+          yarn config set npmPublishRegistry "https://npm.pkg.github.com"
+          yarn npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

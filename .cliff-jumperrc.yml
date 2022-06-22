@@ -1,0 +1,4 @@
+name: rollup-type-bundler
+org: favware
+packagePath: .
+monoRepo: false
