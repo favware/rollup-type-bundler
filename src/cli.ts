@@ -22,7 +22,7 @@ const command = new Command()
   .version(packageJson.version)
   .option('-d, --dist <dist>', 'The dist directory to target')
   .option('-b, --build-script [buildScript]', 'The build script to call after cleaning your dist directory')
-  .option('-v, --verbose', 'Print verbose information', false)
+  .option('-v, --verbose', 'Print verbose information')
   .option(
     '-e, --external [external...]',
     `Repeatable, each will be treated as a new entry. Library or libraries to treat as external in Rollup (see: ${cyan(

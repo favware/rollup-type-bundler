@@ -90,11 +90,13 @@ function transformOptionsDistPathToFileUrl(options: OptionValues): OptionValues 
   const distPath = Reflect.get(options, 'dist') ?? `.${sep}dist`;
   const buildScript = options.buildScript ?? 'build';
   const external = options.external ?? [];
+  const verbose = options.verbose ?? false;
 
   return {
     ...options,
     dist: pathToFileURL(join(packageCwd, distPath)),
     buildScript,
-    external
+    external,
+    verbose
   };
 }
