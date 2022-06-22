@@ -1,5 +1,5 @@
-import { join } from 'path';
-import { URL } from 'url';
+import { join } from 'node:path';
+import { URL } from 'node:url';
 
 /** The root directory of the CLI tool */
 export const cliRootDir = new URL('../../', import.meta.url);

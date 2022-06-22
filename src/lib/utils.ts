@@ -1,7 +1,7 @@
 import { cyan, green, red } from 'colorette';
-import type { PathLike } from 'fs';
-import { readFile } from 'fs/promises';
 import { load } from 'js-yaml';
+import type { PathLike } from 'node:fs';
+import { readFile } from 'node:fs/promises';
 
 /**
  * Parsed a YAML file into an `Object` of type `T`

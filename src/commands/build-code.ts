@@ -1,13 +1,13 @@
 import { indent, packageCwd } from '#lib/constants';
-import type { Options } from '#lib/interfaces';
 import { logVerboseError } from '#lib/logVerbose';
 import { execAsync } from '#lib/promisified';
+import type { OptionValues } from 'commander';
 
 /**
  * Calls the configured `buildScript`, or "build" if none, to compile the TypeScript code
  * @param options The options that tell this function where to clean up
  */
-export async function buildCode(options: Options): Promise<void> {
+export async function buildCode(options: OptionValues): Promise<void> {
   try {
     await execAsync(options.buildScript ? `npm run ${options.buildScript}` : `npm run build`, {
       cwd: packageCwd,

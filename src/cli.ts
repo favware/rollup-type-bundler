@@ -12,24 +12,23 @@ import { doActionAndLog } from '#lib/utils';
 import { cyan } from 'colorette';
 import { Command } from 'commander';
 import { readFile } from 'fs/promises';
-import { join, sep } from 'path';
-import { URL } from 'url';
+import { join } from 'node:path';
+import { URL } from 'node:url';
 
 const packageFile = new URL('package.json', cliRootDir);
 const packageJson = JSON.parse(await readFile(packageFile, 'utf-8'));
 
 const command = new Command()
   .version(packageJson.version)
-  .option('-d, --dist <dist>', 'The dist directory to target', `.${sep}dist`)
-  .option('-b, --build-script [buildScript]', 'The build script to call after cleaning your dist directory', 'build')
+  .option('-d, --dist <dist>', 'The dist directory to target')
+  .option('-b, --build-script [buildScript]', 'The build script to call after cleaning your dist directory')
   .option('-v, --verbose', 'Print verbose information', false)
   .option(
     '-e, --external [external...]',
     `Repeatable, each will be treated as a new entry. Library or libraries to treat as external in Rollup (see: ${cyan(
       'https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency'
     )})`,
-    (value: string, previous: string[]) => previous.concat([value]),
-    []
+    (value: string, previous: string[]) => previous.concat([value])
   );
 
 const program = command.parse(process.argv);

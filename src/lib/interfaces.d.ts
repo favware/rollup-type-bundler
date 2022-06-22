@@ -1,9 +1,12 @@
-import type { URL } from 'url';
+import type { URL } from 'node:url';
+export default undefined;
 
-export interface Options {
-  dist: URL;
-  buildScript?: string;
-  config?: string;
-  verbose?: boolean;
-  external?: string[];
+declare module 'commander' {
+  export interface OptionValues {
+    dist: URL;
+    buildScript?: string;
+    config?: string;
+    verbose?: boolean;
+    external?: string[];
+  }
 }

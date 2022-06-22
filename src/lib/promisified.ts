@@ -1,7 +1,7 @@
-import { exec } from 'child_process';
-import type { PathLike } from 'fs';
-import { lstat } from 'fs/promises';
-import { promisify } from 'util';
+import { exec } from 'node:child_process';
+import type { PathLike } from 'node:fs';
+import { lstat } from 'node:fs/promises';
+import { promisify } from 'node:util';
 
 export const execAsync = promisify(exec);
 export const fileExistsAsync = (path: PathLike) =>
