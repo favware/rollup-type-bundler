@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.0.9](https://github.com/favware/rollup-type-bundler/compare/v1.0.8...v1.0.9) - (2022-06-26)
+
+## 🐛 Bug Fixes
+
+- Fixed regression issue with externals after previous release ([53f4272](https://github.com/favware/rollup-type-bundler/commit/53f42729993e78816c9f371150cf1f73acf3453c))
+
 # [1.0.9](https://github.com/favware/rollup-type-bundler/tree/v1.0.9) - (2022-06-26)
 
 ## 🏠 Refactor
