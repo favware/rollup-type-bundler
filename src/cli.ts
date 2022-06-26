@@ -28,7 +28,7 @@ const command = new Command()
     `Repeatable, each will be treated as a new entry. Library or libraries to treat as external in Rollup (see: ${cyan(
       'https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency'
     )})`,
-    (value: string, previous: string[]) => previous.concat([value])
+    (value: string, previous: string[]) => (previous ?? []).concat([value])
   );
 
 const program = command.parse(process.argv);
