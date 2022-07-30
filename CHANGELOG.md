@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.0.10](https://github.com/favware/rollup-type-bundler/compare/v1.0.9...v1.0.10) - (2022-07-30)
+
+## 🐛 Bug Fixes
+
+- Update dependecies ([d7dda87](https://github.com/favware/rollup-type-bundler/commit/d7dda87cbffe4c6b779ae3856028ddd36800583f))
+- **deps:** Update dependency @sapphire/utilities to ^3.7.0 ([0af5319](https://github.com/favware/rollup-type-bundler/commit/0af5319a0446fc44f278c377db99304f85bbbd1e))
+
 # [1.0.9](https://github.com/favware/rollup-type-bundler/compare/v1.0.8...v1.0.9) - (2022-06-26)
 
 ## 🐛 Bug Fixes
