@@ -38,7 +38,7 @@
     "postpack": "pinst --enable"
   },
   "dependencies": {
-    "@sapphire/utilities": "^3.9.2",
+    "@sapphire/utilities": "^3.9.3",
     "colorette": "^2.0.19",
     "commander": "^9.4.0",
     "js-yaml": "^4.1.0",
