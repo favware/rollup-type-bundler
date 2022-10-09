@@ -49,16 +49,16 @@
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@favware/cliff-jumper": "^1.8.7",
+    "@favware/cliff-jumper": "^1.8.8",
     "@sapphire/eslint-config": "^4.3.8",
     "@sapphire/prettier-config": "^1.4.4",
     "@sapphire/ts-config": "^3.3.4",
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^18.7.8",
-    "@typescript-eslint/eslint-plugin": "^5.38.1",
-    "@typescript-eslint/parser": "^5.38.1",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.24.0",
+    "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.1",
@@ -114,5 +114,5 @@
   "eslintConfig": {
     "extends": "@sapphire"
   },
-  "packageManager": "yarn@3.2.3"
+  "packageManager": "yarn@3.2.4"
 }
