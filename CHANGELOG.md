@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+# [2.0.0](https://github.com/favware/rollup-type-bundler/compare/v1.0.11...v2.0.0) - (2022-10-16)
+
+## 🏠 Refactor
+
+- Bump to v2.0.0 ([654e4c7](https://github.com/favware/rollup-type-bundler/commit/654e4c7468cab3c163e09186e112ffdf35411ff9))
+  - 💥 **BREAKING CHANGE:** This package now depends on Rollup v3 and rollup-plugin-dts v5.
+Please refer to their changelogs for further breaking changes.
+
+## 🐛 Bug Fixes
+
+- **deps:** Update dependency rollup-plugin-dts to v5 (#161) ([154423f](https://github.com/favware/rollup-type-bundler/commit/154423f211c3f261731dd61fdcb9c912f072a91a))
+- **deps:** Update dependency rollup to v3 (#160) ([b8a49c4](https://github.com/favware/rollup-type-bundler/commit/b8a49c42f249d889698dec6f801ca1e2b355f085))
+- **deps:** Update dependency rollup-plugin-dts to ^4.2.3 (#156) ([a4e2715](https://github.com/favware/rollup-type-bundler/commit/a4e2715e71c82bd163a9f676c10adeb2a0032570))
+- **deps:** Update dependency @sapphire/utilities to ^3.11.0 ([0c97ba2](https://github.com/favware/rollup-type-bundler/commit/0c97ba2c4fcac907c71615282ef4497a003689e5))
+- **deps:** Update dependency @sapphire/utilities to ^3.9.3 (#144) ([982eb19](https://github.com/favware/rollup-type-bundler/commit/982eb190480b7470dc3562ebe221992af6ae9866))
+
+# [1.0.11](https://github.com/favware/rollup-type-bundler/compare/v1.0.10...v1.0.11) - (2022-08-20)
+
+## 🐛 Bug Fixes
+
+- Bump dependencies ([8da26cf](https://github.com/favware/rollup-type-bundler/commit/8da26cf2c61ec1c9a1eb4dcae74f4ebd5850dc33))
+- **deps:** Update dependency @sapphire/utilities to ^3.9.0 ([54e9296](https://github.com/favware/rollup-type-bundler/commit/54e92964dade4fcab3b465bf4c060ed5923a0bdd))
+
+# [1.0.10](https://github.com/favware/rollup-type-bundler/compare/v1.0.9...v1.0.10) - (2022-07-30)
+
+## 🐛 Bug Fixes
+
+- Update dependecies ([d7dda87](https://github.com/favware/rollup-type-bundler/commit/d7dda87cbffe4c6b779ae3856028ddd36800583f))
+- **deps:** Update dependency @sapphire/utilities to ^3.7.0 ([0af5319](https://github.com/favware/rollup-type-bundler/commit/0af5319a0446fc44f278c377db99304f85bbbd1e))
+
 # [1.0.11](https://github.com/favware/rollup-type-bundler/compare/v1.0.10...v1.0.11) - (2022-08-20)
 
 ## 🐛 Bug Fixes
