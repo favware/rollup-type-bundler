@@ -8,6 +8,7 @@ import {
 import { logVerboseError } from '#lib/logVerbose';
 import { fileExistsAsync } from '#lib/promisified';
 import { readJson, readYaml } from '#lib/utils';
+import { cast } from '@sapphire/utilities';
 import type { OptionValues } from 'commander';
 import { join, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -94,7 +95,7 @@ function transformOptionsDistPathToFileUrl(options: OptionValues): OptionValues 
 
   return {
     ...options,
-    dist: pathToFileURL(join(packageCwd, distPath)),
+    dist: pathToFileURL(join(packageCwd, cast<string>(distPath))),
     buildScript,
     external,
     verbose
