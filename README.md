@@ -19,10 +19,10 @@ might want to make it possible for people of your library to use [TypeScript
 Module Augmentation][tma] to merge additional types into the types that you
 provide.
 
-Unfortunately, this introduces a big issue in TypeScript. Even when
-re-exporting all your interfaces/types/classes in a root `index.d.ts` that you
-are referencing in `"types"` in your `package.json`, TypeScript still won't
-properly apply folder-nested module augmentation (i.e. a type that's in
+Unfortunately, this introduces a big issue in TypeScript. Even when re-exporting
+all your interfaces/types/classes in a root `index.d.ts` that you are
+referencing in `"types"` in your `package.json`, TypeScript still won't properly
+apply folder-nested module augmentation (i.e. a type that's in
 `your-package/dist/lib/structures/SomeClass.d.ts`) when augmenting like this:
 
 ```ts
@@ -37,8 +37,8 @@ declare module 'your-package/dist/lib/structures/SomeClass' {}
 
 As you might guess, this is extremely bad developer experience because you
 cannot apply all module augmentations in 1 block. That's where this rollup
-module comes in - now, you can bundle types in a developer-friendly way and
-make life easier for everyone involved.
+module comes in - now, you can bundle types in a developer-friendly way and make
+life easier for everyone involved.
 
 [tma]: https://www.typescriptlang.org/docs/handbook/declaration-merging.html
 
@@ -104,10 +104,10 @@ Options:
   -h, --help                        display help for command
 ```
 
-Or, you can set most of these options through a configuration file. This
-file should be located at your current working directory (where you're
-calling this package). It should be named `.rollup-type-bundlerrc`, optionally
-suffixed with `.json`, `.yaml`, or `.yml`.
+Or, you can set most of these options through a configuration file. This file
+should be located at your current working directory (where you're calling this
+package). It should be named `.rollup-type-bundlerrc`, optionally suffixed with
+`.json`, `.yaml`, or `.yml`.
 
 ### Config file fields
 
@@ -116,9 +116,9 @@ suffixed with `.json`, `.yaml`, or `.yml`.
 - `--verbose` maps to `verbose`
 - `--external` maps to `external`
 
-When using `.rollup-type-bundlerrc` or `.rollup-type-bundlerrc.json` as
-your config file you can also use the JSON schema to get schema
-validation. To do so, add the following to your config file:
+When using `.rollup-type-bundlerrc` or `.rollup-type-bundlerrc.json` as your
+config file you can also use the JSON schema to get schema validation. To do so,
+add the following to your config file:
 
 ```json
 {
@@ -153,7 +153,8 @@ external:
 
 This library has opinionated defaults for its options. These are as follows:
 
-- `--dist` will default to `./dist`, using the current working directory as the reference point for the relative path.
+- `--dist` will default to `./dist`, using the current working directory as the
+  reference point for the relative path.
 - `--build-script` will default to `build`.
 - `--verbose` will default to `false`.
 - `--external` will default to `[]`.
@@ -161,13 +162,12 @@ This library has opinionated defaults for its options. These are as follows:
 ## Buy us some doughnuts
 
 Favware projects are and always will be open source, even if we don't get
-donations. That being said, we know there are amazing people who may still
-want to donate just to show their appreciation. Thank you very much in
-advance!
+donations. That being said, we know there are amazing people who may still want
+to donate just to show their appreciation. Thank you very much in advance!
 
-We accept donations through Ko-fi, Paypal, Patreon, GitHub Sponsorships,
-and various cryptocurrencies. You can use the buttons below to donate
-through your method of choice.
+We accept donations through Ko-fi, Paypal, Patreon, GitHub Sponsorships, and
+various cryptocurrencies. You can use the buttons below to donate through your
+method of choice.
 
 |   Donate With   |                      Address                      |
 | :-------------: | :-----------------------------------------------: |
@@ -179,23 +179,15 @@ through your method of choice.
 |    Ethereum     |   `0xF653F666903cd8739030D2721bF01095896F5D6E`    |
 |    LiteCoin     |       `LZHvBkaJqKJRa8N7Dyu41Jd1PDBAofCik6`        |
 
-## Contributors ✨
+## Contributors
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Please make sure to read the [Contributing Guide][contributing] before making a
+pull request.
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://favware.tech/"><img src="https://avatars3.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/favware/rollup-type-bundler/commits?author=Favna" title="Code">💻</a> <a href="#design-Favna" title="Design">🎨</a> <a href="#ideas-Favna" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-Favna" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-Favna" title="Maintenance">🚧</a> <a href="#platform-Favna" title="Packaging/porting to new platform">📦</a> <a href="#projectManagement-Favna" title="Project Management">📆</a></td>
-    <td align="center"><a href="https://github.com/Nytelife26"><img src="https://avatars.githubusercontent.com/u/22531310?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tyler J Russell</b></sub></a><br /><a href="https://github.com/favware/rollup-type-bundler/commits?author=Nytelife26" title="Documentation">📖</a></td>
-  </tr>
-</table>
+Thank you to all the people who already contributed to Sapphire!
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
+<a href="https://github.com/favware/rollup-type-bundler/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=favware/rollup-type-bundler" />
+</a>
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+[contributing]: ./.github/CONTRIBUTING.md
