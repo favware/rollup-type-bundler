@@ -1,12 +1,12 @@
 import { logVerboseError } from '#lib/logVerbose';
-import type { OptionValues } from 'commander';
+import type { Options } from 'commander';
 import { rm } from 'node:fs/promises';
 
 /**
  * Removes the `dist` directory ahead of rebuilding code to ensure a clean build
  * @param options The options that tell this function where to clean up
  */
-export async function cleanDist(options: OptionValues): Promise<void> {
+export async function cleanDist(options: Options): Promise<void> {
   try {
     await rm(options.dist, { recursive: true, force: true });
   } catch (error) {

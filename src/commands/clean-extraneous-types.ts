@@ -1,5 +1,5 @@
 import { logVerboseError } from '#lib/logVerbose';
-import type { OptionValues } from 'commander';
+import type { Options } from 'commander';
 import { opendir, rm } from 'node:fs/promises';
 import { basename, join, sep } from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
@@ -26,7 +26,7 @@ async function* scan(path: URL | string, cb: (path: string) => boolean): AsyncGe
  * Cleans up the extraneous types from the `dist` folder after bundling all the types into the root `index.d.ts`
  * @param options The options that tell this function where to clean up
  */
-export async function cleanExtraneousTypes(options: OptionValues): Promise<void> {
+export async function cleanExtraneousTypes(options: Options): Promise<void> {
   try {
     const regexp = /(?:\.d\.ts(?:\.map)?|\.tsbuildinfo)$/;
     const cb = (path: string) => regexp.test(path);

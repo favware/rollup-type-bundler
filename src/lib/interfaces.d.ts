@@ -2,7 +2,7 @@ import type { URL } from 'node:url';
 export default undefined;
 
 declare module 'commander' {
-  export interface OptionValues {
+  export interface Options {
     dist: URL;
     buildScript?: string;
     config?: string;

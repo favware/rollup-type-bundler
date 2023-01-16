@@ -10,7 +10,7 @@ import { parseOptionsFile } from '#lib/optionsParser';
 import { fileExistsAsync } from '#lib/promisified';
 import { doActionAndLog } from '#lib/utils';
 import { cyan } from 'colorette';
-import { Command } from 'commander';
+import { Command, type Options } from 'commander';
 import { readFile } from 'fs/promises';
 import { join } from 'node:path';
 import { URL } from 'node:url';
@@ -32,7 +32,7 @@ const command = new Command()
   );
 
 const program = command.parse(process.argv);
-const options = await parseOptionsFile(program.opts());
+const options = await parseOptionsFile(program.opts<Options>());
 
 logVerboseInfo(
   [

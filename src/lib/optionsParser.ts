@@ -9,7 +9,7 @@ import { logVerboseError } from '#lib/logVerbose';
 import { fileExistsAsync } from '#lib/promisified';
 import { readJson, readYaml } from '#lib/utils';
 import { cast } from '@sapphire/utilities';
-import type { OptionValues } from 'commander';
+import type { Options } from 'commander';
 import { join, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
@@ -18,7 +18,7 @@ import { pathToFileURL } from 'node:url';
  * @param cliOptions The base CLI options to merge with the options found in a YAML or JSON file, if any
  * @returns The YAML or JSON file provided options with anything passed through the CLI overriding it. Also calls {@link transformOptionsDistPathToFileUrl}
  */
-export async function parseOptionsFile(cliOptions: OptionValues) {
+export async function parseOptionsFile(cliOptions: Options) {
   const rollupTypeBundlerRcExists = await fileExistsAsync(rollupTypeBundlerRcPath);
   const rollupTypeBundlerRcJsonExists = await fileExistsAsync(rollupTypeBundlerRcJsonPath);
   const rollupTypeBundlerRcYmlExists = await fileExistsAsync(rollupTypeBundlerRcYmlPath);
@@ -28,7 +28,7 @@ export async function parseOptionsFile(cliOptions: OptionValues) {
 
   if (rollupTypeBundlerRcYamlExists || rollupTypeBundlerRcYmlExists) {
     try {
-      const fileOptions = await readYaml<OptionValues>(rollupTypeBundlerRcYamlExists ? rollupTypeBundlerRcYamlPath : rollupTypeBundlerRcYmlPath);
+      const fileOptions = await readYaml<Options>(rollupTypeBundlerRcYamlExists ? rollupTypeBundlerRcYamlPath : rollupTypeBundlerRcYmlPath);
 
       options = {
         ...fileOptions,
@@ -53,7 +53,7 @@ export async function parseOptionsFile(cliOptions: OptionValues) {
     }
   } else if (rollupTypeBundlerRcExists || rollupTypeBundlerRcJsonExists) {
     try {
-      const fileOptions = await readJson<OptionValues>(rollupTypeBundlerRcExists ? rollupTypeBundlerRcPath : rollupTypeBundlerRcJsonPath);
+      const fileOptions = await readJson<Options>(rollupTypeBundlerRcExists ? rollupTypeBundlerRcPath : rollupTypeBundlerRcJsonPath);
 
       options = {
         ...fileOptions,
@@ -87,7 +87,7 @@ export async function parseOptionsFile(cliOptions: OptionValues) {
  * @param options The options to parse
  * @returns The same options object, with the `dist` transformed and `buildScript` and `external` set.
  */
-function transformOptionsDistPathToFileUrl(options: OptionValues): OptionValues {
+function transformOptionsDistPathToFileUrl(options: Options): Options {
   const distPath = Reflect.get(options, 'dist') ?? `.${sep}dist`;
   const buildScript = options.buildScript ?? 'build';
   const external = options.external ?? [];
