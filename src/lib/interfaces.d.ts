@@ -24,5 +24,20 @@ declare module 'commander' {
      * External packages to pass to rollup as external
      */
     external?: string[];
+    /**
+     * When enabled the build step will not be called. Useful if you want to only bundle types and handle building yourself.
+     * @default false
+     */
+    noBuild?: boolean;
+    /**
+     * When enabled the clean step will not be called. Useful if you want to only bundle types and handle cleaning yourself.
+     * @default false
+     */
+    noClean?: boolean;
+    /**
+     * A shortcut to enabling both {@link Options.noBuild} and ${@link Options.noClean}. This essentially makes it so rollup-type-bundler only deals with bundling types and nothing else.
+     * @default false
+     */
+    onlyBundle?: boolean;
   }
 }

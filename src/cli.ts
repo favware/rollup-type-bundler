@@ -13,7 +13,7 @@ import { cyan } from 'colorette';
 import { Command, type Options } from 'commander';
 import { readFile } from 'fs/promises';
 import { join } from 'node:path';
-import { URL } from 'node:url';
+import { URL, fileURLToPath } from 'node:url';
 
 const packageFile = new URL('package.json', cliRootDir);
 const packageJson = JSON.parse(await readFile(packageFile, 'utf-8'));
@@ -22,6 +22,18 @@ const command = new Command()
   .version(packageJson.version)
   .option('-d, --dist <dist>', 'The dist directory to target')
   .option('-b, --build-script [buildScript]', 'The build script to call after cleaning your dist directory')
+  .option(
+    '-nb, --no-build [noBuild]',
+    'When enabled (default: false) the build step will not be called. Useful if you want to only bundle types and handle building yourself.'
+  )
+  .option(
+    '-nc, --no-clean [noClean]',
+    'When enabled (default: false) the clean step will not be called. Useful if you want to only bundle types and handle cleaning yourself.'
+  )
+  .option(
+    '-ob, --only-bundle [onlyBundle]',
+    'A shortcut to enabling both `--no-build` and `--no-clean`. This essentially makes it so rollup-type-bundler only deals with bundling types and nothing else.'
+  )
   .option(
     '-t, --typings-file-extension [typingsFileExtension]',
     'The file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot (`.`), it will be added for you.'
@@ -38,12 +50,27 @@ const command = new Command()
 const program = command.parse(process.argv);
 const options = await parseOptionsFile(program.opts<Options>());
 
+if (options.onlyBundle === true) {
+  logVerboseInfo(
+    [
+      'You have enabled the `--only-bundle` option. This will make it so rollup-type-bundler only deals with bundling types and nothing else. This means that the `--no-build` and `--no-clean` options are enabled by default.'
+    ],
+    options.verbose
+  );
+
+  options.noBuild = true;
+  options.noClean = true;
+}
+
 logVerboseInfo(
   [
     'Resolved options: ',
     `${indent}dist: ${JSON.stringify(options.dist)}`,
     `${indent}buildScript: ${JSON.stringify(options.buildScript)}`,
     `${indent}typingsFileExtension: ${JSON.stringify(options.typingsFileExtension)}`,
+    `${indent}noBuild: ${JSON.stringify(options.noBuild)}`,
+    `${indent}noClean: ${JSON.stringify(options.noClean)}`,
+    `${indent}onlyBundle: ${JSON.stringify(options.onlyBundle)}`,
     `${indent}verbose: ${JSON.stringify(options.verbose)}`,
     `${indent}external: ${JSON.stringify(options.external)}`,
     ''
@@ -72,14 +99,18 @@ if (!packageJsonExistsInCwd) {
 | Purges the dist directory |
 |---------------------------|
 */
-await doActionAndLog('Cleaning the configured "dist" path', cleanDist(options));
+if (options.noClean !== true) {
+  await doActionAndLog('Cleaning the configured "dist" path', cleanDist(options));
+}
 
 /**
 |---------------------------------------------------------------------------------|
 | Calls the configured {@link Options.buildScript} to compile the TypeScript code |
 |---------------------------------------------------------------------------------|
 */
-await doActionAndLog('Compiling your TypeScript source code', buildCode(options));
+if (options.noBuild !== true) {
+  await doActionAndLog('Compiling your TypeScript source code', buildCode(options));
+}
 
 /**
 |-------------------------------------|
@@ -93,4 +124,4 @@ await doActionAndLog('Bundling TypeScript types', bundleTypes(options));
 | Cleans extraneous types from the dist directory |
 |-------------------------------------------------|
 */
-await doActionAndLog('Cleaning extraneous types from the "dist" path', cleanExtraneousTypes(options));
+await doActionAndLog(`Cleaning extraneous types from ${fileURLToPath(options.dist)}`, cleanExtraneousTypes(options));
