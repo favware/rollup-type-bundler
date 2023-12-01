@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+# [3.0.0](https://github.com/favware/rollup-type-bundler/compare/v3.0.0...v3.0.0) - (2023-12-01)
+
+## 🐛 Bug Fixes
+
+- Update rollup to v4.5.2 ([f548af3](https://github.com/favware/rollup-type-bundler/commit/f548af3387cfd4ce774c19a339ea80dd37219c55))
+- **deps:** Update dependency rollup to ^4.4.0 ([5aded14](https://github.com/favware/rollup-type-bundler/commit/5aded147adf1547022a974ed809bdf760c0d1871))
+- **deps:** Update dependency rollup to ^4.1.1 ([09c47a7](https://github.com/favware/rollup-type-bundler/commit/09c47a765a0d6f58edee05880fce393948f1104e))
+- **deps:** Update dependency rollup to v4 (#238) ([3c7737c](https://github.com/favware/rollup-type-bundler/commit/3c7737ce4b0ecc099abdacc4f1c02401bf1a446d))
+- **deps:** Update dependency rollup to ^3.29.3 ([d6daebb](https://github.com/favware/rollup-type-bundler/commit/d6daebb76ae58b08ef8440f9411f3a9bf044fc24))
+- **deps:** Update dependency rollup to ^3.29.1 ([5d65b9c](https://github.com/favware/rollup-type-bundler/commit/5d65b9c3e3677d5327e536513c1a4081f6af7b93))
+- **deps:** Update dependency rollup-plugin-dts to v6 (#228) ([a65a87d](https://github.com/favware/rollup-type-bundler/commit/a65a87d24abc55cb382e97c7592a8b4b8ac44dcf))
+- **deps:** Update dependency commander to v11 (#211) ([a27ba0f](https://github.com/favware/rollup-type-bundler/commit/a27ba0f4c9e6ad33f6e967abd80e06ceb799ca4d))
+- **deps:** Update dependency rollup to ^3.25.0 ([112112e](https://github.com/favware/rollup-type-bundler/commit/112112e65d9500b03c1dd028b786ff211fc5c384))
+- **deps:** Update dependency rollup to ^3.21.2 (#202) ([e1e1640](https://github.com/favware/rollup-type-bundler/commit/e1e1640b67b22b596d99b4701c56f4804f863806))
+- **deps:** Update dependency rollup to ^3.14.0 ([637025b](https://github.com/favware/rollup-type-bundler/commit/637025bf755f72ab920f29cd008516278797235b))
+- **deps:** Update dependency rollup to ^3.5.0 ([5612d29](https://github.com/favware/rollup-type-bundler/commit/5612d29dc209ea5f0167f5073e621de34d526d4e))
+
+## 📝 Documentation
+
+- **readme:** Remove all contributors ([910d562](https://github.com/favware/rollup-type-bundler/commit/910d562a4577c96a2cb87c37760f1f64a0a9b41f))
+
+## 🚀 Features
+
+- Add support for custom typings file extensions ([06f37d1](https://github.com/favware/rollup-type-bundler/commit/06f37d11b2e7d43051e0dec7a659fcd9a76f0fba))
+- Bump minimum NodeJS version to 18 ([0d6ad56](https://github.com/favware/rollup-type-bundler/commit/0d6ad56f9ee78631698b3527a40c65062783c744))
+  - 💥 **BREAKING CHANGE:** This update drops support for NodeJS v14 and NodeJS v16, please update to v18 or higher.
+- Update to Commander v10 ([a6d0e74](https://github.com/favware/rollup-type-bundler/commit/a6d0e742544223d0eb7b682698dcd959bf39039a))
+  - 💥 **BREAKING CHANGE:** Drops support for Node 14
+
 # [2.0.0](https://github.com/favware/rollup-type-bundler/compare/v1.0.11...v2.0.0) - (2022-10-16)
 
 ## 🏠 Refactor
