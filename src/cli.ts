@@ -22,6 +22,10 @@ const command = new Command()
   .version(packageJson.version)
   .option('-d, --dist <dist>', 'The dist directory to target')
   .option('-b, --build-script [buildScript]', 'The build script to call after cleaning your dist directory')
+  .option(
+    '-t, --typings-file-extension [typingsFileExtension]',
+    'The file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot (`.`), it will be added for you.'
+  )
   .option('-v, --verbose', 'Print verbose information')
   .option(
     '-e, --external [external...]',
@@ -38,6 +42,8 @@ logVerboseInfo(
   [
     'Resolved options: ',
     `${indent}dist: ${JSON.stringify(options.dist)}`,
+    `${indent}buildScript: ${JSON.stringify(options.buildScript)}`,
+    `${indent}typingsFileExtension: ${JSON.stringify(options.typingsFileExtension)}`,
     `${indent}verbose: ${JSON.stringify(options.verbose)}`,
     `${indent}external: ${JSON.stringify(options.external)}`,
     ''

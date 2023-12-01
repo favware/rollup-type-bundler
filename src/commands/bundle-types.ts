@@ -1,4 +1,5 @@
 import { fileExistsAsync } from '#lib/promisified';
+import { getTypingsInputFileName } from '#lib/utils';
 import type { Options } from 'commander';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -13,7 +14,7 @@ const sleep = promisify(setTimeout);
  * @param options The options that tell this function where to clean up
  */
 export async function bundleTypes(options: Options): Promise<void> {
-  const typingsFile = join(fileURLToPath(options.dist), 'index.d.ts');
+  const typingsFile = join(fileURLToPath(options.dist), getTypingsInputFileName(options));
 
   // Sleep repeated 1 second until the `index.d.ts` file exists
   do {

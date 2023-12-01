@@ -1,38 +1,21 @@
 import { logVerboseError } from '#lib/logVerbose';
+import { findFilesRecursivelyRegex } from '@sapphire/node-utilities';
 import type { Options } from 'commander';
-import { opendir, rm } from 'node:fs/promises';
-import { basename, join, sep } from 'node:path';
-import { fileURLToPath, URL } from 'node:url';
+import { rm } from 'node:fs/promises';
+import { basename, sep } from 'node:path';
+import { getTypingsInputFileName } from '#lib/utils';
+import { fileURLToPath } from 'node:url';
 
 /**
- * Scans a given {@link path} applying the {@link cb} filter
- * @param path The path to scan
- * @param cb The callback to apply to filter files in the {@link path}
- */
-async function* scan(path: URL | string, cb: (path: string) => boolean): AsyncGenerator<string> {
-  const dir = await opendir(typeof path === 'string' ? path : fileURLToPath(path));
-
-  for await (const item of dir) {
-    const file = join(dir.path, item.name);
-    if (item.isFile()) {
-      if (cb(file)) yield file;
-    } else if (item.isDirectory()) {
-      yield* scan(file, cb);
-    }
-  }
-}
-
-/**
- * Cleans up the extraneous types from the `dist` folder after bundling all the types into the root `index.d.ts`
+ * Cleans up the extraneous types from the `dist` folder after bundling all the types into the root `index.d.[cm]?ts`
  * @param options The options that tell this function where to clean up
  */
 export async function cleanExtraneousTypes(options: Options): Promise<void> {
   try {
-    const regexp = /(?:\.d\.ts(?:\.map)?|\.tsbuildinfo)$/;
-    const cb = (path: string) => regexp.test(path);
+    const regexp = /(?:\.d\.[cm]?ts(?:\.map)?|\.tsbuildinfo)$/;
 
-    for await (const path of scan(options.dist, cb)) {
-      if (!path.endsWith(`${basename(fileURLToPath(options.dist))}${sep}index.d.ts`)) {
+    for await (const path of findFilesRecursivelyRegex(options.dist, regexp)) {
+      if (!path.endsWith(`${basename(fileURLToPath(options.dist))}${sep}${getTypingsInputFileName(options)}`)) {
         await rm(path);
       }
     }

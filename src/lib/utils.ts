@@ -1,4 +1,6 @@
+import { isNullishOrEmpty } from '@sapphire/utilities';
 import { cyan, green, red } from 'colorette';
+import type { Options } from 'commander';
 import { load } from 'js-yaml';
 import type { PathLike } from 'node:fs';
 import { readFile } from 'node:fs/promises';
@@ -30,4 +32,12 @@ export async function doActionAndLog<T>(preActionLog: string, action: Promise<T>
     console.error((error as Error).message);
     process.exit(1);
   }
+}
+
+export function getTypingsInputFileName(options: Options) {
+  return isNullishOrEmpty(options.typingsFileExtension)
+    ? 'index.d.ts'
+    : options.typingsFileExtension.startsWith('.')
+      ? `index.d${options.typingsFileExtension}`
+      : `index.d.${options.typingsFileExtension}`;
 }

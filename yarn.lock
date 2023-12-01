@@ -305,6 +305,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:^18.4.3"
     "@favware/cliff-jumper": "npm:^2.2.3"
     "@sapphire/eslint-config": "npm:^5.0.2"
+    "@sapphire/node-utilities": "npm:^1.0.0"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/ts-config": "npm:^5.0.0"
     "@sapphire/utilities": "npm:^3.13.0"
@@ -526,6 +527,13 @@ __metadata:
     prettier: "npm:^3.0.2"
     typescript: "npm:^5.2.2"
   checksum: b2069dc3016f3c615d45e82b6de4547b1a48e69f8c9d4a770f85a2d783742a2e39c3a2060b3f6fa30374f372dd71cf896044668b74bb61b0b7fe094874b16091
+  languageName: node
+  linkType: hard
+
+"@sapphire/node-utilities@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@sapphire/node-utilities@npm:1.0.0"
+  checksum: eb919c92e8b230dbfb57a38d631788c28c00512c587b2c37cbb4d2c0968ea35c48439a065a10ab4bce929c04e8b1523dfa12a1f655ae5988866428118c11ac20
   languageName: node
   linkType: hard
 

@@ -12,6 +12,12 @@
       "type": "string",
       "default": "build"
     },
+    "typingsFileExtension": {
+      "description": "The file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot (`.`), it will be added for you.",
+      "pattern": "^\\.?[a-z]+$",
+      "type": "string",
+      "default": ".ts"
+    },
     "external": {
       "description": "Modules that should be considered as external. See https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency",
       "type": "array",
