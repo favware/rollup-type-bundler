@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [3.1.0](https://github.com/favware/rollup-type-bundler/compare/v3.1.0...v3.1.0) - (2023-12-01)
+
+## 🚀 Features
+
+- Add `noBuild`, `noClean`, and `onlyBundle` options ([57254d5](https://github.com/favware/rollup-type-bundler/commit/57254d5f78ad86cf3f82d2c61733a4da24b57a31))
+
 # [3.0.0](https://github.com/favware/rollup-type-bundler/compare/v3.0.0...v3.0.0) - (2023-12-01)
 
 ## 🐛 Bug Fixes
