@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [3.2.0](https://github.com/favware/rollup-type-bundler/compare/v3.2.0...v3.2.0) - (2023-12-03)
+
+## 📝 Documentation
+
+- **readme:** Update readme to mention previously added options ([13a9c7a](https://github.com/favware/rollup-type-bundler/commit/13a9c7a325632ebeb0b7a0845a5585122abcdb9e))
+
+## 🚀 Features
+
+- Add `--exclude-from-clean` option ([a5ec99b](https://github.com/favware/rollup-type-bundler/commit/a5ec99b1c0c1c8ef0254ed5845d8a11a4d3070f5))
+
 # [3.1.0](https://github.com/favware/rollup-type-bundler/compare/v3.1.0...v3.1.0) - (2023-12-01)
 
 ## 🚀 Features
