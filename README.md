@@ -49,12 +49,16 @@ execute a few steps:
 
 1. It cleans the configured distribution directory (`--dist` flag or `dist` in
    config).
+   - This can be skipped by configuring `--no-clean`
 2. It calls the `--build-script` (or `buildScript` in config) to build your code
    with your compiler. This defaults to `build`.
+   - This can be skipped by configuring `--no-build`
 3. It executes [rollup] to bundle your types into 1 `index.d.ts` file, output to
    the configured `dist` directory.
 4. It removes all other `.d.ts` and `.d.ts.map` files from your configured
    `dist` directory as they are now superfluous.
+
+> Note: You can combine `--no-clean` and `--no-build` by using `--only-bundle`.
 
 [rollup]: https://www.npmjs.com/package/rollup
 [rollup-plugin-dts]: https://www.npmjs.com/package/rollup-plugin-dts
@@ -95,13 +99,21 @@ You can provide all options through CLI flags:
 Usage: rollup-type-bundler [options]
 
 Options:
-  -V, --version                     output the version number
-  -d, --dist <dist>                 The dist directory to target (default: "./dist")
-  -b, --build-script [buildScript]  The build script to call after cleaning your dist directory (default: "build")
-  -v, --verbose                     Print verbose information (default: false)
-  -e, --external [external...]      Repeatable, each will be treated as a new entry. Library or libraries to treat as external in Rollup (see:
-                                    https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency) (default: [])
-  -h, --help                        display help for command
+  -V, --version                                        output the version number
+  -d, --dist <dist>                                    The dist directory to target
+  -b, --build-script [buildScript]                     The build script to call after cleaning your dist directory
+  -nb, --no-build [noBuild]                            When enabled (default: false) the build step will not be called. Useful if you want to only bundle types and handle
+                                                       building yourself.
+  -nc, --no-clean [noClean]                            When enabled (default: false) the clean step will not be called. Useful if you want to only bundle types and handle
+                                                       cleaning yourself.
+  -ob, --only-bundle [onlyBundle]                      A shortcut to enabling both `--no-build` and `--no-clean`. This essentially makes it so rollup-type-bundler only
+                                                       deals with bundling types and nothing else.
+  -t, --typings-file-extension [typingsFileExtension]  The file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a
+                                                       prefixing dot (`.`), it will be added for you.
+  -v, --verbose                                        Print verbose information
+  -e, --external [external...]                         Repeatable, each will be treated as a new entry. Library or libraries to treat as external in Rollup (see:
+                                                       https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency)
+  -h, --help                                           display help for command
 ```
 
 Or, you can set most of these options through a configuration file. This file
@@ -113,6 +125,10 @@ package). It should be named `.rollup-type-bundlerrc`, optionally suffixed with
 
 - `--dist` maps to `dist`
 - `--build-script` maps to `buildScript`
+- `--no-build` maps to `noBuild`
+- `--no-clean` maps to `noClean`
+- `--only-bundle` maps to `onlyBundle`
+- `--typings-file-extension` maps to `typingsFileExtension`
 - `--verbose` maps to `verbose`
 - `--external` maps to `external`
 
@@ -156,6 +172,10 @@ This library has opinionated defaults for its options. These are as follows:
 - `--dist` will default to `./dist`, using the current working directory as the
   reference point for the relative path.
 - `--build-script` will default to `build`.
+- `--no-build` will default to `false`.
+- `--no-clean` will default to `false`.
+- `--only-bundle` will default to `false`.
+- `--typings-file-extension` will default to `undefined`.
 - `--verbose` will default to `false`.
 - `--external` will default to `[]`.
 
