@@ -33,7 +33,8 @@ export async function parseOptionsFile(cliOptions: Options) {
       options = {
         ...fileOptions,
         ...options,
-        external: [...(fileOptions.external ?? []), ...(options.external ?? [])]
+        external: [...(fileOptions.external ?? []), ...(options.external ?? [])],
+        excludeFromClean: [...(fileOptions.excludeFromClean ?? []), ...(options.excludeFromClean ?? [])]
       };
     } catch (err) {
       const typedError = err as Error;
@@ -58,7 +59,8 @@ export async function parseOptionsFile(cliOptions: Options) {
       options = {
         ...fileOptions,
         ...options,
-        external: [...(fileOptions.external ?? []), ...(options.external ?? [])]
+        external: [...(fileOptions.external ?? []), ...(options.external ?? [])],
+        excludeFromClean: [...(fileOptions.excludeFromClean ?? []), ...(options.excludeFromClean ?? [])]
       };
     } catch (err) {
       const typedError = err as Error;
@@ -83,14 +85,15 @@ export async function parseOptionsFile(cliOptions: Options) {
 
 /**
  * Transforms the {@link Options} object to have a `dist` directory relative to the current working directory and as a file {@link URL}
- * Also hydrates the object with defaults in case `buildScript` and `external` were not yet set
+ * Also hydrates the object with defaults in case `buildScript`, `external`, and `excludeFromClean` were not yet set
  * @param options The options to parse
- * @returns The same options object, with the `dist` transformed and `buildScript` and `external` set.
+ * @returns The same options object, with the `dist` transformed and `buildScript`, `external`, and `excludeFromClean` set.
  */
 function transformOptionsDistPathToFileUrl(options: Options): Options {
   const distPath = Reflect.get(options, 'dist') ?? `.${sep}dist`;
   const buildScript = options.buildScript ?? 'build';
   const external = options.external ?? [];
+  const excludeFromClean = options.excludeFromClean ?? [];
   const verbose = options.verbose ?? false;
 
   return {
@@ -98,6 +101,7 @@ function transformOptionsDistPathToFileUrl(options: Options): Options {
     dist: pathToFileURL(join(packageCwd, cast<string>(distPath))),
     buildScript,
     external,
+    excludeFromClean,
     verbose
   };
 }

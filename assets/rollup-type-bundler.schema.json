@@ -26,6 +26,14 @@
       },
       "default": []
     },
+    "excludeFromClean": {
+      "description": "Files to be excluded from the clean step, useful if you want to process those files manually yourself later.\nThis is in particular useful if you have multiple entrypoints.\nNote that a String#endsWith check is used to check if an entry in this array matches a path of a file to delete. So you can either use the full relative path, or just the file name.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
     "noBuild": {
       "description": "When enabled (default: false) the build step will not be called. Useful if you want to only bundle types and handle building yourself.",
       "type": "boolean",

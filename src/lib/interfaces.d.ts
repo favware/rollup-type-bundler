@@ -25,6 +25,16 @@ declare module 'commander' {
      */
     external?: string[];
     /**
+     * Repeatable, each will be treated as a new entry.
+     *
+     * Files to be excluded from the clean step, useful if you want to process those files manually yourself later.
+     *
+     * This is in particular useful if you have multiple entrypoints.
+     *
+     * Note that a `String#endsWith` check is used to check if an entry in this array matches a path of a file to delete. So you can either use the full relative path, or just the file name.
+     */
+    excludeFromClean?: string[];
+    /**
      * When enabled the build step will not be called. Useful if you want to only bundle types and handle building yourself.
      * @default false
      */

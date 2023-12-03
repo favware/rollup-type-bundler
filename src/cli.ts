@@ -45,6 +45,16 @@ const command = new Command()
       'https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency'
     )})`,
     (value: string, previous: string[]) => (previous ?? []).concat([value])
+  )
+  .option(
+    '-ec, --exclude-from-clean [excludeFromClean...]',
+    [
+      'Repeatable, each will be treated as a new entry.',
+      'Files to be excluded from the clean step, useful if you want to process those files manually yourself later.',
+      'This is in particular useful if you have multiple entrypoints.',
+      'Note that a String#endsWith check is used to check if an entry in this array matches a path of a file to delete. So you can either use the full relative path, or just the file name.'
+    ].join('\n'),
+    (value: string, previous: string[]) => (previous ?? []).concat([value])
   );
 
 const program = command.parse(process.argv);
@@ -73,6 +83,7 @@ logVerboseInfo(
     `${indent}onlyBundle: ${JSON.stringify(options.onlyBundle)}`,
     `${indent}verbose: ${JSON.stringify(options.verbose)}`,
     `${indent}external: ${JSON.stringify(options.external)}`,
+    `${indent}excludeFromClean: ${JSON.stringify(options.excludeFromClean)}`,
     ''
   ],
   options.verbose

@@ -14,10 +14,14 @@ export async function cleanExtraneousTypes(options: Options): Promise<void> {
   try {
     const regexp = /(?:\.d\.[cm]?ts(?:\.map)?|\.tsbuildinfo)$/;
 
+    const inputFileName = `${basename(fileURLToPath(options.dist))}${sep}${getTypingsInputFileName(options)}`;
+
     for await (const path of findFilesRecursivelyRegex(options.dist, regexp)) {
-      if (!path.endsWith(`${basename(fileURLToPath(options.dist))}${sep}${getTypingsInputFileName(options)}`)) {
-        await rm(path);
+      if (path.endsWith(inputFileName) || options.excludeFromClean?.some((filePath) => path.endsWith(filePath))) {
+        continue;
       }
+
+      await rm(path);
     }
   } catch (err) {
     const typedError = err as Error;

@@ -102,17 +102,22 @@ Options:
   -V, --version                                        output the version number
   -d, --dist <dist>                                    The dist directory to target
   -b, --build-script [buildScript]                     The build script to call after cleaning your dist directory
-  -nb, --no-build [noBuild]                            When enabled (default: false) the build step will not be called. Useful if you want to only bundle types and handle
-                                                       building yourself.
-  -nc, --no-clean [noClean]                            When enabled (default: false) the clean step will not be called. Useful if you want to only bundle types and handle
-                                                       cleaning yourself.
-  -ob, --only-bundle [onlyBundle]                      A shortcut to enabling both `--no-build` and `--no-clean`. This essentially makes it so rollup-type-bundler only
-                                                       deals with bundling types and nothing else.
-  -t, --typings-file-extension [typingsFileExtension]  The file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a
-                                                       prefixing dot (`.`), it will be added for you.
+  -nb, --no-build [noBuild]                            When enabled (default: false) the build step will not be called. Useful if you want to only bundle types and handle building
+                                                       yourself.
+  -nc, --no-clean [noClean]                            When enabled (default: false) the clean step will not be called. Useful if you want to only bundle types and handle cleaning
+                                                       yourself.
+  -ob, --only-bundle [onlyBundle]                      A shortcut to enabling both `--no-build` and `--no-clean`. This essentially makes it so rollup-type-bundler only deals with
+                                                       bundling types and nothing else.
+  -t, --typings-file-extension [typingsFileExtension]  The file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot
+                                                       (`.`), it will be added for you.
   -v, --verbose                                        Print verbose information
   -e, --external [external...]                         Repeatable, each will be treated as a new entry. Library or libraries to treat as external in Rollup (see:
                                                        https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency)
+  -ec, --exclude-from-clean [excludeFromClean...]      Repeatable, each will be treated as a new entry.
+                                                       Files to be excluded from the clean step, useful if you want to process those files manually yourself later.
+                                                       This is in particular useful if you have multiple entrypoints.
+                                                       Note that a String#endsWith check is used to check if an entry in this array matches a path of a file to delete. So you can
+                                                       either use the full relative path, or just the file name.
   -h, --help                                           display help for command
 ```
 
@@ -131,6 +136,7 @@ package). It should be named `.rollup-type-bundlerrc`, optionally suffixed with
 - `--typings-file-extension` maps to `typingsFileExtension`
 - `--verbose` maps to `verbose`
 - `--external` maps to `external`
+- `--exclude-from-clean` maps to `excludeFromClean`
 
 When using `.rollup-type-bundlerrc` or `.rollup-type-bundlerrc.json` as your
 config file you can also use the JSON schema to get schema validation. To do so,
@@ -178,6 +184,7 @@ This library has opinionated defaults for its options. These are as follows:
 - `--typings-file-extension` will default to `undefined`.
 - `--verbose` will default to `false`.
 - `--external` will default to `[]`.
+- `--exclude-from-clean` will default to `[]`.
 
 ## Buy us some doughnuts
 
