@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [3.2.1](https://github.com/favware/rollup-type-bundler/compare/v3.2.1...v3.2.1) - (2023-12-05)
+
+## 🐛 Bug Fixes
+
+- Normalize path separators for excludeFromClean to ensure PowerShell & Sh support ([66e6b28](https://github.com/favware/rollup-type-bundler/commit/66e6b28f3f91ddb559b7df9c990bc59cbf9b1a3c))
+
 # [3.2.0](https://github.com/favware/rollup-type-bundler/compare/v3.2.0...v3.2.0) - (2023-12-03)
 
 ## 📝 Documentation
