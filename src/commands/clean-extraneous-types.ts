@@ -15,9 +15,10 @@ export async function cleanExtraneousTypes(options: Options): Promise<void> {
     const regexp = /(?:\.d\.[cm]?ts(?:\.map)?|\.tsbuildinfo)$/;
 
     const inputFileName = `${basename(fileURLToPath(options.dist))}${sep}${getTypingsInputFileName(options)}`;
+    const excludeFromCleanWithSepNormalized = options.excludeFromClean?.map((entry) => entry.replaceAll(/[\/\\]/g, sep));
 
     for await (const path of findFilesRecursivelyRegex(options.dist, regexp)) {
-      if (path.endsWith(inputFileName) || options.excludeFromClean?.some((filePath) => path.endsWith(filePath))) {
+      if (path.endsWith(inputFileName) || excludeFromCleanWithSepNormalized?.some((filePath) => path.endsWith(filePath))) {
         continue;
       }
 
