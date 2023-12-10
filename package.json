@@ -32,33 +32,33 @@
     "prepack": "yarn build"
   },
   "dependencies": {
-    "@sapphire/node-utilities": "^1.0.0",
-    "@sapphire/utilities": "^3.13.0",
+    "@sapphire/node-utilities": "^1.0.1",
+    "@sapphire/utilities": "^3.14.0",
     "colorette": "^2.0.20",
     "commander": "^11.1.0",
     "js-yaml": "^4.1.0",
-    "rollup": "^4.6.1",
+    "rollup": "^4.7.0",
     "rollup-plugin-dts": "^6.1.0",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@favware/cliff-jumper": "^2.2.3",
-    "@sapphire/eslint-config": "^5.0.2",
+    "@sapphire/eslint-config": "^5.0.3",
     "@sapphire/prettier-config": "^2.0.0",
     "@sapphire/ts-config": "^5.0.0",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^20.10.2",
-    "@typescript-eslint/eslint-plugin": "^6.13.1",
-    "@typescript-eslint/parser": "^6.13.1",
+    "@types/node": "^20.10.4",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.0.1",
-    "lint-staged": "^15.1.0",
+    "lint-staged": "^15.2.0",
     "prettier": "^3.1.0",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   },
   "resolutions": {
     "acorn": "^8.11.2",
