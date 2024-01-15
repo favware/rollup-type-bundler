@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# [3.3.0](https://github.com/favware/rollup-type-bundler/compare/v3.3.0...v3.3.0) - (2024-01-15)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies ([7d3130e](https://github.com/favware/rollup-type-bundler/commit/7d3130e3917636dd001c4e5f444fe243d15105ee))
+- **deps:** Update dependency rollup to ^4.9.1 ([fbb0a45](https://github.com/favware/rollup-type-bundler/commit/fbb0a456de92e6ed78b417a0f6ced7c11f10c753))
+
+## 🚀 Features
+
+- Add `--output-typings-file-extension` to make it possible to customize the output file extension separately from the input file extension ([4ec5e88](https://github.com/favware/rollup-type-bundler/commit/4ec5e8828380365752cb1529c2e226e01b3683ad))
+
 # [3.2.1](https://github.com/favware/rollup-type-bundler/compare/v3.2.1...v3.2.1) - (2023-12-05)
 
 ## 🐛 Bug Fixes
