@@ -36,7 +36,11 @@ const command = new Command()
   )
   .option(
     '-t, --typings-file-extension [typingsFileExtension]',
-    'The file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot (`.`), it will be added for you.'
+    'The input file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot (`.`), it will be added for you.'
+  )
+  .option(
+    '-ot, --output-typings-file-extension [outputTypingsFileExtension]',
+    'The output file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot (`.`), it will be added for you. Defaults to the value of "typingsFileExtension"'
   )
   .option('-v, --verbose', 'Print verbose information')
   .option(
@@ -78,6 +82,7 @@ logVerboseInfo(
     `${indent}dist: ${JSON.stringify(options.dist)}`,
     `${indent}buildScript: ${JSON.stringify(options.buildScript)}`,
     `${indent}typingsFileExtension: ${JSON.stringify(options.typingsFileExtension)}`,
+    `${indent}outputTypingsFileExtension: ${JSON.stringify(options.outputTypingsFileExtension)}`,
     `${indent}noBuild: ${JSON.stringify(options.noBuild)}`,
     `${indent}noClean: ${JSON.stringify(options.noClean)}`,
     `${indent}onlyBundle: ${JSON.stringify(options.onlyBundle)}`,

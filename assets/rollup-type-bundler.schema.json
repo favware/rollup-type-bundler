@@ -13,7 +13,13 @@
       "default": "build"
     },
     "typingsFileExtension": {
-      "description": "The file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot (`.`), it will be added for you.",
+      "description": "The input file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot (`.`), it will be added for you.",
+      "pattern": "^\\.?[a-z]+$",
+      "type": "string",
+      "default": ".ts"
+    },
+    "outputTypingsFileExtension": {
+      "description": "The output file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot (`.`), it will be added for you. Defaults to the value of \"typingsFileExtension\".",
       "pattern": "^\\.?[a-z]+$",
       "type": "string",
       "default": ".ts"

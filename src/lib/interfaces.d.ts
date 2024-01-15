@@ -12,10 +12,18 @@ declare module 'commander' {
      */
     buildScript?: string;
     /**
-     * The file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot (`.`), it will be added for you.
+     * The **input** file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot (`.`), it will be added for you.
      * @default .ts
      */
     typingsFileExtension?: string;
+    /**
+     * The **output** file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot (`.`), it will be added for you.
+     *
+     * Defaults to the same value as {@link typingsFileExtension}
+     *
+     * @default .ts
+     */
+    outputTypingsFileExtension?: string;
     /**
      * Whether or not to show verbose output
      */

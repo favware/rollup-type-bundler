@@ -41,3 +41,11 @@ export function getTypingsInputFileName(options: Options) {
       ? `index.d${options.typingsFileExtension}`
       : `index.d.${options.typingsFileExtension}`;
 }
+
+export function getOutputTypingsInputFileName(options: Options) {
+  return isNullishOrEmpty(options.outputTypingsFileExtension)
+    ? getTypingsInputFileName(options)
+    : options.outputTypingsFileExtension.startsWith('.')
+      ? `index.d${options.outputTypingsFileExtension}`
+      : `index.d.${options.outputTypingsFileExtension}`;
+}

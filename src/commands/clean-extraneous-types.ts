@@ -1,9 +1,9 @@
 import { logVerboseError } from '#lib/logVerbose';
+import { getOutputTypingsInputFileName, getTypingsInputFileName } from '#lib/utils';
 import { findFilesRecursivelyRegex } from '@sapphire/node-utilities';
 import type { Options } from 'commander';
 import { rm } from 'node:fs/promises';
 import { basename, sep } from 'node:path';
-import { getTypingsInputFileName } from '#lib/utils';
 import { fileURLToPath } from 'node:url';
 
 /**
@@ -15,11 +15,21 @@ export async function cleanExtraneousTypes(options: Options): Promise<void> {
     const regexp = /(?:\.d\.[cm]?ts(?:\.map)?|\.tsbuildinfo)$/;
 
     const inputFileName = `${basename(fileURLToPath(options.dist))}${sep}${getTypingsInputFileName(options)}`;
+    const outputFileName = `${basename(fileURLToPath(options.dist))}${sep}${getOutputTypingsInputFileName(options)}`;
     const excludeFromCleanWithSepNormalized = options.excludeFromClean?.map((entry) => entry.replaceAll(/[\/\\]/g, sep));
 
     for await (const path of findFilesRecursivelyRegex(options.dist, regexp)) {
-      if (path.endsWith(inputFileName) || excludeFromCleanWithSepNormalized?.some((filePath) => path.endsWith(filePath))) {
+      if (path.endsWith(outputFileName) || excludeFromCleanWithSepNormalized?.some((filePath) => path.endsWith(filePath))) {
         continue;
+      }
+
+      if (path.endsWith(inputFileName)) {
+        if (inputFileName === outputFileName) {
+          continue;
+        } else {
+          await rm(path);
+          continue;
+        }
       }
 
       await rm(path);

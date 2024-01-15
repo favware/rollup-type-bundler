@@ -1,5 +1,5 @@
 import { fileExistsAsync } from '#lib/promisified';
-import { getTypingsInputFileName } from '#lib/utils';
+import { getOutputTypingsInputFileName, getTypingsInputFileName } from '#lib/utils';
 import type { Options } from 'commander';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -28,8 +28,10 @@ export async function bundleTypes(options: Options): Promise<void> {
     cache: false
   });
 
+  const outputTypingsFile = join(fileURLToPath(options.dist), getOutputTypingsInputFileName(options));
+
   await bundle.write({
-    file: typingsFile,
+    file: outputTypingsFile,
     format: 'es'
   });
 }
