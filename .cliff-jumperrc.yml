@@ -1,5 +1,10 @@
 name: rollup-type-bundler
-org: favware
 packagePath: .
+org: favware
 monoRepo: false
 tagTemplate: v{{new-version}}
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+githubRepo: auto
