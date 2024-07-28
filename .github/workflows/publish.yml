@@ -5,7 +5,7 @@ on:
 
 jobs:
   PublishPackage:
-    name: Publish @sapphire/framework
+    name: Publish @favware/rollup-type-bundler
     runs-on: ubuntu-latest
     if: github.repository_owner == 'favware'
     steps:
