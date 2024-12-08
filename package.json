@@ -37,7 +37,7 @@
     "colorette": "^2.0.20",
     "commander": "^12.1.0",
     "js-yaml": "^4.1.0",
-    "rollup": "^4.28.0",
+    "rollup": "^4.28.1",
     "rollup-plugin-dts": "^6.1.1",
     "typescript": "^5.5.2"
   },
@@ -57,7 +57,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "lint-staged": "^15.2.10",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "typescript": "^5.5.2"
   },
   "resolutions": {
