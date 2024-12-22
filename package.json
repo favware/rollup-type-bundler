@@ -37,12 +37,12 @@
     "colorette": "^2.0.20",
     "commander": "^12.1.0",
     "js-yaml": "^4.1.0",
-    "rollup": "^4.28.1",
+    "rollup": "^4.29.1",
     "rollup-plugin-dts": "^6.1.1",
     "typescript": "^5.5.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.0",
+    "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@favware/cliff-jumper": "^5.0.0",
     "@sapphire/eslint-config": "^5.0.5",
