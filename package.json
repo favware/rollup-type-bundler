@@ -35,7 +35,7 @@
     "@sapphire/node-utilities": "^1.0.2",
     "@sapphire/utilities": "^3.18.1",
     "colorette": "^2.0.20",
-    "commander": "^12.1.0",
+    "commander": "^13.0.0",
     "js-yaml": "^4.1.0",
     "rollup": "^4.29.1",
     "rollup-plugin-dts": "^6.1.1",
