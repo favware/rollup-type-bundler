@@ -23,15 +23,15 @@ const command = new Command()
   .option('-d, --dist <dist>', 'The dist directory to target')
   .option('-b, --build-script [buildScript]', 'The build script to call after cleaning your dist directory')
   .option(
-    '-nb, --no-build [noBuild]',
+    '--no-build [noBuild]',
     'When enabled (default: false) the build step will not be called. Useful if you want to only bundle types and handle building yourself.'
   )
   .option(
-    '-nc, --no-clean [noClean]',
+    '--no-clean [noClean]',
     'When enabled (default: false) the clean step will not be called. Useful if you want to only bundle types and handle cleaning yourself.'
   )
   .option(
-    '-ob, --only-bundle [onlyBundle]',
+    '--only-bundle [onlyBundle]',
     'A shortcut to enabling both `--no-build` and `--no-clean`. This essentially makes it so rollup-type-bundler only deals with bundling types and nothing else.'
   )
   .option(
@@ -39,7 +39,7 @@ const command = new Command()
     'The input file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot (`.`), it will be added for you.'
   )
   .option(
-    '-ot, --output-typings-file-extension [outputTypingsFileExtension]',
+    '--output-typings-file-extension [outputTypingsFileExtension]',
     'The output file extension for your typings files. Useful if you want to set `.cts` or `.mts`. If you forego adding a prefixing dot (`.`), it will be added for you. Defaults to the value of "typingsFileExtension"'
   )
   .option('-v, --verbose', 'Print verbose information')
@@ -51,7 +51,7 @@ const command = new Command()
     (value: string, previous: string[]) => (previous ?? []).concat([value])
   )
   .option(
-    '-ec, --exclude-from-clean [excludeFromClean...]',
+    '--exclude-from-clean [excludeFromClean...]',
     [
       'Repeatable, each will be treated as a new entry.',
       'Files to be excluded from the clean step, useful if you want to process those files manually yourself later.',
