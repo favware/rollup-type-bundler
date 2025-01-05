@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file.
 
+# [4.0.0](https://github.com/favware/rollup-type-bundler/compare/v3.3.0...v4.0.0) - (2025-01-05)
+
+## 🏠 Refactor
+
+- Remove various single dash aliases for commander v13 compatibility ([2d8e3ef](https://github.com/favware/rollup-type-bundler/commit/2d8e3ef46a7cef383fffbd41b0b62125095f1490))
+  - 💥 **BREAKING CHANGE:** Removed `-nb` as alias for `--no-build`
+  - 💥 **BREAKING CHANGE:** Removed `-nc` as alias for `--no-clean`
+  - 💥 **BREAKING CHANGE:** Removed `-ob` as alias for `--only-bundle`
+  - 💥 **BREAKING CHANGE:** Removed `-ot` as alias for `--output-typings-file-extension`
+  - 💥 **BREAKING CHANGE:** Removed `-ec` as alias for `--exclude-from-clean`
+
+## 🐛 Bug Fixes
+
+- **deps:** Update dependency commander to v13 ([1f14146](https://github.com/favware/rollup-type-bundler/commit/1f141467c091ae52fb3e09fc4572b7413f40c8c0))
+- **deps:** Update all non-major dependencies ([9db03a4](https://github.com/favware/rollup-type-bundler/commit/9db03a4520e927dbf80b98cb55ea0848c76a112d)) ([#334](https://github.com/favware/rollup-type-bundler/pull/334) by @renovate[bot])
+- **deps:** Update dependency rollup to ^4.27.2 ([8802523](https://github.com/favware/rollup-type-bundler/commit/880252320444772363022a9b506c5eefb08787ea)) ([#329](https://github.com/favware/rollup-type-bundler/pull/329) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([d9f24a6](https://github.com/favware/rollup-type-bundler/commit/d9f24a65ae405fb2ac2dfad92ff7e3adb3ddb017)) ([#328](https://github.com/favware/rollup-type-bundler/pull/328) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([55e5d1f](https://github.com/favware/rollup-type-bundler/commit/55e5d1f22e8a477c7b145ef0ec6648ce4a8b715f)) ([#325](https://github.com/favware/rollup-type-bundler/pull/325) by @renovate[bot])
+- **deps:** Update dependency rollup to ^4.24.0 ([a4ec87e](https://github.com/favware/rollup-type-bundler/commit/a4ec87e7d51d95094e26ac68461a569afd30f162)) ([#320](https://github.com/favware/rollup-type-bundler/pull/320) by @renovate[bot])
+- **deps:** Update dependency rollup to ^4.21.0 ([3687c69](https://github.com/favware/rollup-type-bundler/commit/3687c699dabf2d620df4e798c60c4ba8d908e0e6)) ([#312](https://github.com/favware/rollup-type-bundler/pull/312) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([b92460e](https://github.com/favware/rollup-type-bundler/commit/b92460e500aab621788738a5eef9b4fcdb953f30)) ([#298](https://github.com/favware/rollup-type-bundler/pull/298) by @renovate[bot])
+- **deps:** Update dependency rollup to ^4.16.0 ([04adfaa](https://github.com/favware/rollup-type-bundler/commit/04adfaa2b79fca5e7de8be6737ab0807794f24b0)) ([#292](https://github.com/favware/rollup-type-bundler/pull/292) by @renovate[bot])
+- **deps:** Update dependency rollup to ^4.14.1 ([ce8f0de](https://github.com/favware/rollup-type-bundler/commit/ce8f0de28ecdfe019a6d55e20c97c13e2eb7b44e)) ([#289](https://github.com/favware/rollup-type-bundler/pull/289) by @renovate[bot])
+- **deps:** Update dependency commander to v12 ([471c556](https://github.com/favware/rollup-type-bundler/commit/471c556056ac9800d58fca993439b2d9c9ed39e7)) ([#274](https://github.com/favware/rollup-type-bundler/pull/274) by @renovate[bot])
+- **deps:** Update dependency rollup to ^4.9.6 ([2e7b07f](https://github.com/favware/rollup-type-bundler/commit/2e7b07fbc52aa6de6cc0471216f9d4315517a607)) ([#270](https://github.com/favware/rollup-type-bundler/pull/270) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([dab6fb8](https://github.com/favware/rollup-type-bundler/commit/dab6fb8014fcbe967ecacbeb88bdae7878d3c937)) ([#269](https://github.com/favware/rollup-type-bundler/pull/269) by @renovate[bot])
+
 # [3.3.0](https://github.com/favware/rollup-type-bundler/compare/v3.3.0...v3.3.0) - (2024-01-15)
 
 ## 🐛 Bug Fixes
