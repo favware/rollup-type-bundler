@@ -325,7 +325,7 @@ __metadata:
     "@sapphire/eslint-config": "npm:^5.0.6"
     "@sapphire/node-utilities": "npm:^1.0.2"
     "@sapphire/prettier-config": "npm:^2.0.0"
-    "@sapphire/ts-config": "npm:^5.0.2"
+    "@sapphire/ts-config": "npm:^5.0.3"
     "@sapphire/utilities": "npm:^3.18.2"
     "@types/js-yaml": "npm:^4.0.9"
     "@types/node": "npm:^24.10.1"
@@ -339,9 +339,9 @@ __metadata:
     eslint-plugin-prettier: "npm:^5.5.4"
     js-yaml: "npm:^4.1.1"
     lint-staged: "npm:^16.2.7"
-    prettier: "npm:^3.6.2"
+    prettier: "npm:^3.7.3"
     rollup: "npm:^4.53.3"
-    rollup-plugin-dts: "npm:^6.2.3"
+    rollup-plugin-dts: "npm:^6.3.0"
     typescript: "npm:^5.5.2"
   bin:
     rollup-type-bundler: ./dist/cli.js
@@ -381,10 +381,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/sourcemap-codec@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "@jridgewell/sourcemap-codec@npm:1.5.0"
-  checksum: 10/4ed6123217569a1484419ac53f6ea0d9f3b57e5b57ab30d7c267bdb27792a27eb0e4b08e84a2680aa55cc2f2b411ffd6ec3db01c44fdc6dc43aca4b55f8374fd
+"@jridgewell/sourcemap-codec@npm:^1.5.5":
+  version: 1.5.5
+  resolution: "@jridgewell/sourcemap-codec@npm:1.5.5"
+  checksum: 10/5d9d207b462c11e322d71911e55e21a4e2772f71ffe8d6f1221b8eb5ae6774458c1d242f897fb0814e8714ca9a6b498abfa74dfe4f434493342902b1a48b33a5
   languageName: node
   linkType: hard
 
@@ -728,13 +728,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/ts-config@npm:^5.0.2":
-  version: 5.0.2
-  resolution: "@sapphire/ts-config@npm:5.0.2"
+"@sapphire/ts-config@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "@sapphire/ts-config@npm:5.0.3"
   dependencies:
     tslib: "npm:^2.8.1"
     typescript: "npm:~5.4.5"
-  checksum: 10/fbfaa473fa512c15b870241321ef6cc7decd43688d79e9a1b9b63d650f01d91f2fa41e34e1c38be2dace144148b6e325ec53a91c6c035c64d96bcdea09c9f198
+  checksum: 10/187405f8ca6d46258600220910970cc71832687707394968b477b290e0f48023154a126cfdedfa298b317b3fda563091230a47766a49fd87dea02e7d0c08e1af
   languageName: node
   linkType: hard
 
@@ -796,16 +796,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 22.19.1
-  resolution: "@types/node@npm:22.19.1"
-  dependencies:
-    undici-types: "npm:~6.21.0"
-  checksum: 10/40d5368faa6d9be6c27ebca2362734bc9e035a742e0b5cafee40ba3b355d7cfcaedbc93618c76465451e53f1af0c811b4b85ee9b85e2e942f34a4c5310fa047b
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^24.10.1":
+"@types/node@npm:*, @types/node@npm:^24.10.1":
   version: 24.10.1
   resolution: "@types/node@npm:24.10.1"
   dependencies:
@@ -3042,12 +3033,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.30.17":
-  version: 0.30.17
-  resolution: "magic-string@npm:0.30.17"
+"magic-string@npm:^0.30.21":
+  version: 0.30.21
+  resolution: "magic-string@npm:0.30.21"
   dependencies:
-    "@jridgewell/sourcemap-codec": "npm:^1.5.0"
-  checksum: 10/2f71af2b0afd78c2e9012a29b066d2c8ba45a9cd0c8070f7fd72de982fb1c403b4e3afdb1dae00691d56885ede66b772ef6bedf765e02e3a7066208fe2fec4aa
+    "@jridgewell/sourcemap-codec": "npm:^1.5.5"
+  checksum: 10/57d5691f41ed40d962d8bd300148114f53db67fadbff336207db10a99f2bdf4a1be9cac3a68ee85dba575912ee1d4402e4396408196ec2d3afd043b076156221
   languageName: node
   linkType: hard
 
@@ -3595,12 +3586,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.0.0, prettier@npm:^3.5.3, prettier@npm:^3.6.2":
-  version: 3.6.2
-  resolution: "prettier@npm:3.6.2"
+"prettier@npm:^3.0.0, prettier@npm:^3.5.3, prettier@npm:^3.7.3":
+  version: 3.7.3
+  resolution: "prettier@npm:3.7.3"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10/1213691706bcef1371d16ef72773c8111106c3533b660b1cc8ec158bd109cdf1462804125f87f981f23c4a3dba053b6efafda30ab0114cc5b4a725606bb9ff26
+  checksum: 10/f83ca7e3c69717c1e2f7a95af2d9700eea520c235dfc0f94727a550a4bf0f14eda956a9b2682991b4f1da4605247b3cd3c5547bf2ada4a3ca718bc9ca230040a
   languageName: node
   linkType: hard
 
@@ -3745,19 +3736,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-dts@npm:^6.2.3":
-  version: 6.2.3
-  resolution: "rollup-plugin-dts@npm:6.2.3"
+"rollup-plugin-dts@npm:^6.3.0":
+  version: 6.3.0
+  resolution: "rollup-plugin-dts@npm:6.3.0"
   dependencies:
     "@babel/code-frame": "npm:^7.27.1"
-    magic-string: "npm:^0.30.17"
+    magic-string: "npm:^0.30.21"
   peerDependencies:
     rollup: ^3.29.4 || ^4
     typescript: ^4.5 || ^5.0
   dependenciesMeta:
     "@babel/code-frame":
       optional: true
-  checksum: 10/53d5f51a4dd4f75d206e3c937dd28a9be23383320bb9055c886200cf3f43813213b342ffc41126167727cddd8766c514561bc83c5f86a519cab5183421794696
+  checksum: 10/1b2b25126eee0c4e7f59d82ee5850b0c5779a1a0bb77d677798e20a3d29dba76d1a19a73300ed5b20aab02f6888ecc4209a95b07f6cc9c1b80af14bdcbeda5b9
   languageName: node
   linkType: hard
 
@@ -4252,13 +4243,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 10/760f7d92fb383dbf7dee2443bf902f4365db2117f96f875cf809167f6103d55064de973db9f78fe8f31ec08fff52b2c969aee0d310939c0a3798ec75d0bca2e1
-  languageName: node
-  linkType: hard
-
-"undici-types@npm:~6.21.0":
-  version: 6.21.0
-  resolution: "undici-types@npm:6.21.0"
-  checksum: 10/ec8f41aa4359d50f9b59fa61fe3efce3477cc681908c8f84354d8567bb3701fafdddf36ef6bff307024d3feb42c837cf6f670314ba37fc8145e219560e473d14
   languageName: node
   linkType: hard
 
