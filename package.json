@@ -37,7 +37,7 @@
     "colorette": "^2.0.20",
     "commander": "^14.0.2",
     "js-yaml": "^4.1.1",
-    "rollup": "^4.53.3",
+    "rollup": "^4.54.0",
     "rollup-plugin-dts": "^6.3.0",
     "typescript": "^5.5.2"
   },
