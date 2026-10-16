@@ -33,11 +33,11 @@
   },
   "dependencies": {
     "@sapphire/node-utilities": "^1.0.2",
-    "@sapphire/utilities": "^3.18.2",
+    "@sapphire/utilities": "^3.18.3",
     "colorette": "^2.0.20",
     "commander": "^14.0.3",
     "js-yaml": "^4.3.2",
-    "rollup": "^4.64.0",
+    "rollup": "^4.64.7",
     "rollup-plugin-dts": "^6.5.1",
     "typescript": "^5.5.2"
   },
@@ -49,19 +49,19 @@
     "@sapphire/prettier-config": "^2.0.0",
     "@sapphire/ts-config": "^5.0.3",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^24.19.1",
+    "@types/node": "^24.19.2",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-prettier": "^5.5.7",
     "lint-staged": "^16.4.0",
-    "prettier": "^3.9.9",
+    "prettier": "^3.9.10",
     "typescript": "^5.5.2"
   },
   "resolutions": {
-    "acorn": "^8.18.0",
+    "acorn": "^8.19.0",
     "ansi-regex": "^5.0.1",
     "minimist": "^1.2.8"
   },
